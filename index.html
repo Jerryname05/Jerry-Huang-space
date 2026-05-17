@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jerry Huang Space</title>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="scroll-progress" aria-hidden="true">
+      <span id="scrollProgressBar"></span>
+    </div>
+    <header class="site-header">
+      <a class="brand" href="#home" aria-label="回到首页">
+        <span class="brand-dot"></span>
+        <span>Jerry Huang</span>
+      </a>
+      <nav class="nav" aria-label="页面导航">
+        <a class="active" href="#home">首页</a>
+        <a href="#about">关于我</a>
+        <a href="#education">教育/实习经历</a>
+        <a href="#projects">项目经历</a>
+        <a href="#contact">联系方式</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="home">
+        <div class="hero-particles" aria-hidden="true">
+          <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="bubble-field" aria-hidden="true">
+          <span style="--x: 7%; --size: 10px; --delay: -1s; --duration: 9s; --drift: 34px"></span>
+          <span style="--x: 15%; --size: 18px; --delay: -5s; --duration: 12s; --drift: -42px"></span>
+          <span style="--x: 27%; --size: 8px; --delay: -3s; --duration: 10s; --drift: 28px"></span>
+          <span style="--x: 38%; --size: 14px; --delay: -8s; --duration: 13s; --drift: -30px"></span>
+          <span style="--x: 49%; --size: 22px; --delay: -2s; --duration: 15s; --drift: 45px"></span>
+          <span style="--x: 58%; --size: 9px; --delay: -6s; --duration: 11s; --drift: -24px"></span>
+          <span style="--x: 70%; --size: 16px; --delay: -4s; --duration: 14s; --drift: 38px"></span>
+          <span style="--x: 82%; --size: 11px; --delay: -9s; --duration: 12s; --drift: -36px"></span>
+          <span style="--x: 93%; --size: 20px; --delay: -7s; --duration: 16s; --drift: 26px"></span>
+        </div>
+        <div class="cursor-trail-layer" id="cursorTrailLayer" aria-hidden="true"></div>
+        <div class="visitor-pill" aria-label="访问人数与主题切换">
+          <button class="sun-badge" type="button" id="themeToggle" aria-label="切换网页颜色主题">☼</button>
+          <strong>已有 <span id="visitCount">0</span> 人来访问过</strong>
+        </div>
+        <aside class="hero-panel" aria-label="核心履历数据">
+          <div class="profile-card">
+            <p class="profile-pill">👋 Hi，我是 Jerry Huang</p>
+            <h2>黄嘉仪</h2>
+            <p class="profile-school">
+              <span>广州商学院（本科） · 市场营销</span>
+              <span>中国传媒大学 · 短视频与数字文化传播（辅修）</span>
+            </p>
+            <div class="hero-chips" aria-label="个人标签">
+              <span>ENFJ</span>
+              <span>SBTI 尤物</span>
+              <span>内容增长选手</span>
+              <span>AI爱好探索者</span>
+            </div>
+            <div class="metric-grid">
+              <div>
+                <strong>立即到岗</strong>
+                <span>一周 5 天</span>
+              </div>
+              <div>
+                <strong>100w+</strong>
+                <span>内容曝光</span>
+              </div>
+              <div>
+                <strong>69%</strong>
+                <span>客户转化率</span>
+              </div>
+            </div>
+            <p
+              class="profile-intro typewriter-intro"
+              data-text="欢迎来到我的个人网站！我是一个超级大 E 人，喜欢和不同领域的新朋友一起把想法落地。求职方向聚焦新媒体运营、内容增长与用户转化，欢迎继续向下探索我的经历与作品。"
+            >
+              欢迎来到我的个人网站！我是一个超级大 E 人，喜欢和不同领域的新朋友一起把想法落地。求职方向聚焦新媒体运营、内容增长与用户转化，欢迎继续向下探索我的经历与作品。
+            </p>
+            <div class="hero-match-card" aria-label="首页 JD 快速匹配">
+              <label for="quickJdText">AI 岗位匹配器</label>
+              <div class="quick-match-row">
+                <input id="quickJdText" type="text" placeholder="粘贴您的JD，查看我与岗位之间的匹配度" />
+                <button
+                  class="quick-match-button"
+                  id="quickMatchBtn"
+                  type="button"
+                  onclick="window.runHomepageMatch && window.runHomepageMatch()"
+                >
+                  开始匹配 →
+                </button>
+              </div>
+              <label class="quick-upload" for="quickJdFile">或直接上传 JD 文件</label>
+              <input id="quickJdFile" type="file" accept=".txt,.pdf,text/plain,application/pdf" />
+            </div>
+          </div>
+        </aside>
+        <a class="scroll-cue" href="#about" aria-label="向下探索">
+          <span>向下探索</span>
+          <b>⌄</b>
+        </a>
+      </section>
+
+      <section class="section match-section" id="match">
+        <div class="section-heading">
+          <p class="eyebrow">JD MATCHER</p>
+          <h2>HR 上传 JD，实时查看岗位匹配度</h2>
+          <p>
+            支持粘贴 JD 文本，也可以上传 TXT 或 PDF。所有分析在浏览器本地完成，用你的简历证据匹配岗位能力要求。
+          </p>
+        </div>
+
+        <div class="matcher-layout">
+          <form class="jd-card" id="jdForm">
+            <label class="upload-box" for="jdFile">
+              <span class="upload-icon">↑</span>
+              <span class="upload-title">上传 JD 文件</span>
+              <span class="upload-note">支持 .txt / .pdf，或直接在下方粘贴</span>
+              <input id="jdFile" type="file" accept=".txt,.pdf,text/plain,application/pdf" />
+            </label>
+            <label class="textarea-label" for="jdText">JD 文本</label>
+            <textarea
+              id="jdText"
+              placeholder="请粘贴岗位职责、任职要求、加分项等内容。例如：负责小红书选题策划、短视频剪辑、账号数据复盘、社群运营和用户转化..."
+            ></textarea>
+            <div class="form-row">
+              <button class="primary-button" type="submit">生成匹配报告</button>
+              <button class="ghost-button" type="button" id="loadDemo">载入新媒体运营示例 JD</button>
+            </div>
+            <p class="privacy-note">隐私提示：该原型不上传文件，JD 内容只在当前浏览器中分析。</p>
+          </form>
+
+          <aside class="result-card" aria-live="polite">
+            <div class="score-ring" id="scoreRing" style="--score: 0">
+              <span id="scoreValue">0</span>
+              <small>匹配分</small>
+            </div>
+            <div>
+              <p class="result-label">当前结论</p>
+              <h3 id="resultTitle">等待 JD 输入</h3>
+              <p id="resultSummary">上传或粘贴 JD 后，我会根据岗位关键词与简历证据生成匹配分析。</p>
+            </div>
+          </aside>
+        </div>
+
+        <div class="analysis-grid" id="analysisGrid"></div>
+        <div class="insight-panel" id="insightPanel">
+          <h3>面试表达建议</h3>
+          <p>生成报告后，这里会给出适合在面试或作品集中强化的表达。</p>
+        </div>
+      </section>
+
+      <section class="section" id="about">
+        <div class="section-heading">
+          <p class="eyebrow">ABOUT ME</p>
+          <h2>关于我</h2>
+        </div>
+        <div class="ability-grid about-grid">
+          <article>
+            <span class="ability-icon blue">📊</span>
+            <h3>数据驱动</h3>
+            <strong>商业化产品策划/运营</strong>
+            <p>在上海 ESC 教育公司负责搭建运营工作流，通过输入—理解优化—输出为 skill 形成全链路，将日均收入提升 20%。擅长结合各类 AI 工具整合全链路。</p>
+          </article>
+          <article>
+            <span class="ability-icon beige">📱</span>
+            <h3>小红书运营手</h3>
+            <strong>宠物博主</strong>
+            <p>从 0-1 搭建宠物分享垂直账号，全平台累计涨粉 1500+，总浏览量 20w+，互动量 5k+，并实现挂车盈利 1w+。擅长内容矩阵搭建形成内容—盈利闭环。</p>
+          </article>
+          <article>
+            <span class="ability-icon green">📕</span>
+            <h3>摄影师</h3>
+            <strong>自由摄影师</strong>
+            <p>独立完成私域营销—获客—转化—盈利全链路闭环，私域客户超过 1w+，拍摄宠物家庭超过 1000+，盈利超过 30w。</p>
+          </article>
+          <article>
+            <span class="ability-icon pink">🤖</span>
+            <h3>AI 探索</h3>
+            <strong>Vibe Coding 实践者</strong>
+            <p>热衷于利用 AI 提升效率，搭建雅思文章精读工作流，并正在搭建小红书/飞书智能回复助手等多个自动工作流，追求效率与 AI 深度结合。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="education">
+        <div class="section-heading">
+          <p class="eyebrow">EDUCATION & INTERNSHIP</p>
+          <h2>教育 / 实习经历</h2>
+        </div>
+        <div class="education-stack">
+          <article class="education-panel">
+            <div class="panel-title">
+              <span class="panel-icon">🎓</span>
+              <h3>教育经历</h3>
+            </div>
+            <div class="school-card">
+              <div class="school-mark" aria-hidden="true">
+                <img src="./assets/gcc-logo.png" alt="" />
+              </div>
+              <div class="school-copy">
+                <h4>广州商学院（本科）</h4>
+                <p>市场营销 · 广州 · 2023.9 - 2027.6</p>
+                <div class="mini-tags">
+                  <span>本科</span>
+                  <span>市场营销</span>
+                  <span>国家奖学金</span>
+                </div>
+                <ul class="honor-list">
+                  <li>🏆 学习成绩排名 1/130，两年连续获得国家奖学金</li>
+                  <li>🏆 中国国际创新大赛国家级铜奖、正大杯省级一等奖</li>
+                  <li>🏆 中国传媒大学短视频与数字文化传播专业（辅修）</li>
+                </ul>
+              </div>
+              <img class="school-photo" src="./personal-hero.jpg" alt="Jerry Huang 个人照片" />
+            </div>
+            <div class="skill-strip" aria-label="专业技能">
+              <h4>专业技能</h4>
+              <div class="skill-columns">
+                <div>
+                  <strong>01 产品运营</strong>
+                  <p><span>商业化增长</span><span>策略精细化</span><span>用户体验</span><span>数据分析</span></p>
+                </div>
+                <div>
+                  <strong>02 内容与自媒体</strong>
+                  <p><span>宠物自媒体</span><span>内容矩阵策划</span><span>私域转化</span><span>兴趣电商运营</span></p>
+                </div>
+                <div>
+                  <strong>03 AI & Vibe Coding</strong>
+                  <p><span>自动化工作流</span><span>智能回复开发</span><span>AI工具应用</span><span>效率系统搭建</span></p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="education-panel internship-panel">
+            <div class="panel-title">
+              <span class="panel-icon">💼</span>
+              <h3>实习经历 · 3段经历</h3>
+            </div>
+            <div class="internship-grid">
+              <article class="internship-card blue-line">
+                <div class="company-logo image-logo paw-logo">
+                  <img src="./assets/paw-logo.jpg" alt="北京 paw 宠物 logo" />
+                </div>
+                <h4>北京 paw 宠物有限公司</h4>
+                <p class="role">门店运营增长实习生</p>
+                <p class="date">2023.11 - 2024.05</p>
+                <p>负责宠物摄影门店小红书内容运营与私域转化，设计“内容种草-私信咨询-社群承接-预约到店”链路；累计发布 56 篇笔记，单篇最高点击 25w，带动销售 272 单、GMV 45.2w。</p>
+                <div class="mini-tags"><span>销售272单</span><span>GMV 45.2w</span><span>私域转化60%</span></div>
+              </article>
+              <article class="internship-card purple-line">
+                <div class="company-logo image-logo freshman-logo">
+                  <img src="./assets/freshman-logo.jpg" alt="Freshman.academy logo" />
+                </div>
+                <h4>Freshman.academy <small>（上海分部）</small></h4>
+                <p class="role">市场部</p>
+                <p class="date">2024.7 - 2025.12</p>
+                <p>负责美国文书业务板块内容矩阵与获客增长，沉淀爆款标题、首图、故事线与评论区问题模板；产出小红书笔记 125 篇，最高浏览 12w，公众号累计曝光 100w+。</p>
+                <div class="mini-tags"><span>125篇笔记</span><span>曝光100w+</span><span>转化率69%</span></div>
+              </article>
+              <article class="internship-card red-line">
+                <div class="company-logo image-logo hongke-logo">
+                  <img src="./assets/hongke-logo.png" alt="广州虹科电子 logo" />
+                </div>
+                <h4>广州虹科电子有限公司</h4>
+                <p class="role">内容运营</p>
+                <p class="date">2025.9 - 2025.11</p>
+                <p>负责京东、1688、淘宝等平台新品上架及 SPU 更新，梳理 9 个事业部产品卖点，完成 2000+ 次上下架与 170+ 张视觉物料模版；通过 PCAN 接口线 A/B 测流推动销量环比增长 28.8%。</p>
+                <div class="mini-tags"><span>上下架2000+</span><span>物料模版170+</span><span>销量+28.8%</span></div>
+              </article>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-heading">
+          <p class="eyebrow">PROJECTS</p>
+          <h2>项目经历</h2>
+        </div>
+        <div class="project-grid">
+          <article class="project-card feature-project">
+            <img class="project-avatar" src="./assets/xhs-avatar.jpg" alt="小红书账号头像" />
+            <span class="project-icon">📕</span>
+            <div>
+              <h3>小红书运营手</h3>
+              <p class="project-kicker">宠物博主 · 内容增长 & 兴趣电商 & 私域运营</p>
+            </div>
+            <div class="project-stats">
+              <span><strong>1500+</strong>全平台涨粉</span>
+              <span><strong>20w+</strong>总浏览量</span>
+              <span><strong>5k+</strong>互动量</span>
+            </div>
+            <div class="project-tags">
+              <span>内容增长</span>
+              <span>宠物垂类</span>
+              <span>挂车盈利1w+</span>
+              <span>私域运营</span>
+              <span>内容矩阵</span>
+            </div>
+            <p class="feature-copy">从 0-1 搭建宠物分享垂直账号，全平台累计涨粉 1500+，总浏览量 20w+，互动量 5k+，并实现挂车盈利 1w+。擅长内容矩阵搭建，形成内容—盈利闭环。</p>
+            <a class="project-button" id="xhsProjectLink" href="https://xhslink.com/m/3LnX3f5P3QR" target="_blank" rel="noopener noreferrer">📕 前往我的小红书主页 →</a>
+          </article>
+          <article class="project-card side-project">
+            <span class="project-badge">CASE</span>
+            <div>
+              <span class="side-project-icon">📕</span>
+              <h3>摄影师</h3>
+              <p class="project-kicker">自由摄影师</p>
+              <div class="project-tags compact">
+                <span>私域营销</span>
+                <span>宠物摄影</span>
+                <span>获客转化</span>
+              </div>
+              <p>独立完成私域营销—获客—转化—盈利全链路闭环，私域客户超过 1w+，拍摄宠物家庭超过 1000+，盈利超过 30w。</p>
+            </div>
+          </article>
+          <article class="project-card side-project">
+            <span class="project-badge">VIBE</span>
+            <div>
+              <span class="side-project-icon">🤖</span>
+              <h3>AI 探索</h3>
+              <p class="project-kicker">Vibe Coding 实践者</p>
+              <div class="project-tags compact">
+                <span>AI 工作流</span>
+                <span>精读工具</span>
+                <span>智能回复</span>
+              </div>
+              <p>热衷于利用 AI 提升效率，搭建雅思文章精读工作流，并正在搭建小红书 / 飞书智能回复助手等多个自动工作流，追求效率与 AI 深度结合。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact">
+        <div class="section-heading">
+          <p class="eyebrow">LET'S CONNECT</p>
+          <h2>联系我</h2>
+        </div>
+        <div class="contact-grid">
+          <article class="contact-card">
+            <h3>联系方式</h3>
+            <div class="contact-list">
+              <div class="contact-item">
+                <span class="contact-icon">📍</span>
+                <div>
+                  <small>地址</small>
+                  <strong>深圳 / 广州，中国</strong>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📧</span>
+                <div>
+                  <small>邮箱</small>
+                  <a href="mailto:jerryjerry0613@qq.com">jerryjerry0613@qq.com</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📱</span>
+                <div>
+                  <small>电话 / 微信同号</small>
+                  <a href="tel:15800260553">15800260553</a>
+                </div>
+              </div>
+              <div class="contact-item">
+                <span class="contact-icon">📕</span>
+                <div>
+                  <small>小红书</small>
+                  <a href="https://xhslink.com/m/3LnX3f5P3QR" target="_blank" rel="noopener noreferrer">@Jerry 的小红书 →</a>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="contact-card qr-card">
+            <h3>微信联系</h3>
+            <p>扫描二维码添加微信，欢迎交流合作</p>
+            <div class="qr-frame">
+              <img src="./assets/wechat-qr.jpg" alt="Jerry Huang 微信二维码" />
+            </div>
+            <p class="qr-note">扫一扫上面的二维码图案，加我为朋友。</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Jerry Huang · All rights reserved.</p>
+    </footer>
+
+    <div class="match-modal" id="matchModal" aria-hidden="true">
+      <div class="match-modal-backdrop" data-close-match></div>
+      <section class="match-modal-panel" role="dialog" aria-modal="true" aria-labelledby="matchModalTitle">
+        <button class="match-modal-close" type="button" id="matchModalClose" onclick="window.closeHomepageMatch && window.closeHomepageMatch()" aria-label="关闭匹配报告">×</button>
+        <div class="match-modal-head">
+          <div class="score-ring modal-score-ring" id="modalScoreRing" style="--score: 0">
+            <span id="modalScoreValue">0</span>
+            <small>匹配分</small>
+          </div>
+          <div>
+            <p class="result-label">AI 岗位匹配器</p>
+            <h2 id="matchModalTitle">等待 JD 输入</h2>
+            <p id="modalResultSummary">粘贴或上传 JD 后，会在这里生成匹配分析。</p>
+          </div>
+        </div>
+        <div class="modal-analysis-grid" id="modalAnalysisGrid"></div>
+        <div class="modal-insight-panel" id="modalInsightPanel"></div>
+      </section>
+    </div>
+
+    <button class="music-pill" id="musicPlayer" type="button" onclick="window.toggleMusicPlayer && window.toggleMusicPlayer()" aria-label="随机播放音乐">
+      <span class="music-icon" id="musicIcon">▶</span>
+      <span>
+        <strong id="musicStatus">和 Jerry 一起听歌</strong>
+        <b id="musicTitle">Jerry 的随机歌单</b>
+        <small id="musicArtist">点击开始，播放后可暂停</small>
+      </span>
+    </button>
+    <button class="back-home-button dog-home-button" id="backHomeButton" type="button" onclick="window.scrollTo({top:0,left:0,behavior:'smooth'}); history.replaceState(null,'',location.pathname + location.search); document.getElementById('homeToast')?.classList.add('is-visible'); setTimeout(function(){document.getElementById('homeToast')?.classList.remove('is-visible')},1800); return false;" aria-label="返回首页">
+      <span class="dog-speech">点我返回主页</span>
+      <svg class="pixel-dog" aria-hidden="true" viewBox="0 0 64 58" role="img">
+        <rect class="dog-ear dog-ear-left" x="5" y="13" width="17" height="24" rx="7" />
+        <rect class="dog-ear dog-ear-right" x="42" y="13" width="17" height="24" rx="7" />
+        <rect class="dog-face" x="10" y="12" width="44" height="38" rx="14" />
+        <circle class="dog-eye" cx="24" cy="28" r="3" />
+        <circle class="dog-eye" cx="40" cy="28" r="3" />
+        <rect class="dog-nose" x="28" y="34" width="8" height="6" rx="3" />
+      </svg>
+    </button>
+    <div class="home-toast" id="homeToast" role="status" aria-live="polite">我又回来了</div>
+
+    <script>
+      (function ensureDogHomeButton() {
+        function syncDog() {
+          var dog = document.getElementById("backHomeButton");
+          if (!dog) return;
+          var about = document.getElementById("about");
+          var threshold = about ? about.offsetTop - 180 : window.innerHeight * 0.7;
+          var shouldShow = window.scrollY >= threshold || (location.hash && location.hash !== "#home");
+          dog.classList.toggle("is-visible", shouldShow);
+        }
+        window.addEventListener("scroll", syncDog, { passive: true });
+        window.addEventListener("hashchange", function () {
+          setTimeout(syncDog, 80);
+        });
+        window.addEventListener("load", function () {
+          setTimeout(syncDog, 120);
+        });
+        setTimeout(syncDog, 120);
+        setTimeout(syncDog, 500);
+      })();
+
+      window.applySiteTheme = function applySiteTheme(theme) {
+        var root = document.documentElement;
+        var button = document.getElementById("themeToggle");
+        root.dataset.theme = theme === "mint" ? "mint" : "color";
+        if (button) {
+          button.textContent = theme === "mint" ? "☾" : "☼";
+          button.setAttribute("aria-label", theme === "mint" ? "切换到蓝紫粉主题" : "切换到黑白薄荷主题");
+        }
+        try {
+          localStorage.setItem("jerry-site-theme", root.dataset.theme);
+        } catch (error) {
+          // Ignore storage errors when opened from restricted local contexts.
+        }
+      };
+
+      window.toggleSiteTheme = function toggleSiteTheme() {
+        var current = document.documentElement.dataset.theme;
+        window.applySiteTheme(current === "mint" ? "color" : "mint");
+      };
+
+      window.jerryPlaylist = [
+        {
+          artistName: "Jerry 的随机歌单",
+          trackName: "Chill Track 01",
+          previewUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3"
+        },
+        {
+          artistName: "Jerry 的随机歌单",
+          trackName: "Chill Track 02",
+          previewUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3"
+        },
+        {
+          artistName: "Taylor Swift",
+          trackName: "Cruel Summer",
+          previewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview221/v4/44/af/81/44af8168-9609-1b85-5048-ada08dceacf3/mzaf_1341699644335558812.plus.aac.p.m4a"
+        },
+        {
+          artistName: "邓紫棋",
+          trackName: "泡沫",
+          previewUrl: "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e8/66/da/e866da50-76d5-32fb-51c4-76d48da5b2b0/mzaf_13527714063244447846.plus.aac.p.m4a"
+        }
+      ];
+      window.jerryAudio = new Audio();
+      window.jerryAudio.volume = 0.55;
+      window.jerryCurrentTrack = null;
+      window.jerryLastTrackIndex = -1;
+
+      window.updateMusicUi = function updateMusicUi(isPlaying) {
+        var player = document.getElementById("musicPlayer");
+        var icon = document.getElementById("musicIcon");
+        var status = document.getElementById("musicStatus");
+        var title = document.getElementById("musicTitle");
+        var artist = document.getElementById("musicArtist");
+
+        if (player) player.classList.toggle("is-playing", isPlaying);
+        if (icon) icon.textContent = isPlaying ? "Ⅱ" : "▶";
+        if (status) status.textContent = isPlaying ? "PLAYING" : window.jerryCurrentTrack ? "PAUSED" : "和 Jerry 一起听歌";
+        if (!window.jerryCurrentTrack) {
+          if (title) title.textContent = "Jerry 的随机歌单";
+          if (artist) artist.textContent = "点击开始，播放后可暂停";
+        }
+      };
+
+      window.pickRandomTrack = function pickRandomTrack() {
+        var nextIndex = Math.floor(Math.random() * window.jerryPlaylist.length);
+        if (window.jerryPlaylist.length > 1) {
+          while (nextIndex === window.jerryLastTrackIndex) {
+            nextIndex = Math.floor(Math.random() * window.jerryPlaylist.length);
+          }
+        }
+        window.jerryLastTrackIndex = nextIndex;
+        return window.jerryPlaylist[nextIndex];
+      };
+
+      window.playRandomTrack = function playRandomTrack() {
+        var icon = document.getElementById("musicIcon");
+        var status = document.getElementById("musicStatus");
+        var title = document.getElementById("musicTitle");
+        var artist = document.getElementById("musicArtist");
+        window.jerryCurrentTrack = window.pickRandomTrack();
+        if (icon) icon.textContent = "…";
+        if (status) status.textContent = "LOADING";
+        if (title) title.textContent = window.jerryCurrentTrack.trackName;
+        if (artist) artist.textContent = window.jerryCurrentTrack.artistName;
+        window.jerryAudio.src = window.jerryCurrentTrack.previewUrl;
+        window.jerryAudio.play().catch(function () {
+          if (status) status.textContent = "点击后浏览器未允许播放";
+          if (icon) icon.textContent = "▶";
+        });
+      };
+
+      window.toggleMusicPlayer = function toggleMusicPlayer() {
+        if (!window.jerryAudio.paused) {
+          window.jerryAudio.pause();
+          return;
+        }
+        if (window.jerryCurrentTrack) {
+          window.jerryAudio.play().catch(window.playRandomTrack);
+          return;
+        }
+        window.playRandomTrack();
+      };
+
+      window.jerryAudio.addEventListener("play", function () {
+        window.updateMusicUi(true);
+      });
+      window.jerryAudio.addEventListener("pause", function () {
+        window.updateMusicUi(false);
+      });
+      window.jerryAudio.addEventListener("ended", function () {
+        window.playRandomTrack();
+      });
+      window.jerryAudio.addEventListener("error", function () {
+        window.playRandomTrack();
+      });
+
+      window.syncSiteHeader = function syncSiteHeader() {
+        var header = document.querySelector(".site-header");
+        var hero = document.getElementById("home");
+        var progressBar = document.getElementById("scrollProgressBar");
+        var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
+        if (!header) return;
+
+        var triggerPoint = hero ? hero.offsetHeight - header.offsetHeight - 24 : 40;
+        var maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        var progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+        header.classList.toggle("scrolled", window.scrollY >= triggerPoint);
+        if (progressBar) progressBar.style.transform = "scaleX(" + progress + ")";
+
+        var marker = window.scrollY + header.offsetHeight + 120;
+        var candidates = navLinks
+          .map(function (link) {
+            var id = link.getAttribute("href");
+            var section = id && document.querySelector(id);
+            if (!section || section.offsetHeight === 0) return null;
+            return { link: link, top: section.offsetTop };
+          })
+          .filter(Boolean)
+          .sort(function (a, b) {
+            return a.top - b.top;
+          });
+        var current = candidates[0];
+        candidates.forEach(function (item) {
+          if (item.top <= marker) current = item;
+        });
+        if (current) {
+          navLinks.forEach(function (link) {
+            link.classList.toggle("active", link === current.link);
+          });
+        }
+      };
+
+      window.addEventListener("scroll", window.syncSiteHeader, { passive: true });
+      window.addEventListener("hashchange", window.syncSiteHeader);
+      window.addEventListener("load", function () {
+        window.syncSiteHeader();
+        setTimeout(window.syncSiteHeader, 80);
+      });
+      requestAnimationFrame(window.syncSiteHeader);
+
+      (function initIntroTypewriterFallback() {
+        var intro = document.querySelector(".typewriter-intro");
+        if (!intro || intro.dataset.ready === "true") return;
+        intro.dataset.ready = "true";
+        var text = intro.getAttribute("data-text") || intro.textContent.trim();
+        var index = 0;
+        intro.textContent = "";
+        intro.classList.remove("is-complete");
+
+        function typeNext() {
+          intro.textContent = text.slice(0, index);
+          index += 1;
+          if (index <= text.length) {
+            window.setTimeout(typeNext, 32);
+            return;
+          }
+          window.setTimeout(function () {
+            intro.classList.add("is-complete");
+          }, 180);
+        }
+
+        window.setTimeout(typeNext, 520);
+      })();
+
+      window.runHomepageMatch = function runHomepageMatchFallback() {
+        var input = document.getElementById("quickJdText");
+        var modal = document.getElementById("matchModal");
+        var scoreRing = document.getElementById("modalScoreRing");
+        var scoreValue = document.getElementById("modalScoreValue");
+        var title = document.getElementById("matchModalTitle");
+        var summary = document.getElementById("modalResultSummary");
+        var grid = document.getElementById("modalAnalysisGrid");
+        var insight = document.getElementById("modalInsightPanel");
+        var text = input ? input.value.trim() : "";
+        var keywords = ["小红书", "公众号", "内容", "选题", "短视频", "剪辑", "社群", "私域", "数据", "复盘", "转化", "增长"];
+        var hits = keywords.filter(function (item) {
+          return text.indexOf(item) > -1;
+        });
+        var score = text.length < 12 ? 0 : Math.min(92, 52 + hits.length * 5);
+
+        if (scoreRing) scoreRing.style.setProperty("--score", score);
+        if (scoreValue) scoreValue.textContent = score;
+        if (title) title.textContent = score ? "岗位匹配报告已生成" : "需要更多 JD 信息";
+        if (summary) {
+          summary.textContent = score
+            ? "这份 JD 与 Jerry 的内容运营、数据复盘和转化经验存在交集，建议重点查看项目与实习经历。"
+            : "请先粘贴岗位职责、任职要求或加分项，再生成匹配报告。";
+        }
+        if (grid) {
+          grid.innerHTML = [
+            ["内容运营", hits.includes("内容") || hits.includes("小红书") || hits.includes("公众号")],
+            ["短视频制作", hits.includes("短视频") || hits.includes("剪辑")],
+            ["私域转化", hits.includes("社群") || hits.includes("私域") || hits.includes("转化")],
+            ["数据复盘", hits.includes("数据") || hits.includes("复盘") || hits.includes("增长")],
+          ]
+            .map(function (item) {
+              return '<article class="dimension-card"><div class="dimension-top"><h3>' + item[0] + '</h3><span class="badge">' + (item[1] ? "匹配" : "待强化") + '</span></div><div class="progress"><span style="--width:' + (item[1] ? "82" : "38") + '%"></span></div><p>' + (item[1] ? "JD 中出现相关关键词，可用简历案例支撑。" : "JD 相关关键词较少，可在面试中补充表达。") + "</p></article>";
+            })
+            .join("");
+        }
+        if (insight) insight.innerHTML = "<h3>面试表达建议</h3><p>围绕 JD 里的关键词，优先讲清楚你做过什么、产生了什么数据结果、如何复盘迭代。</p>";
+        if (modal) {
+          modal.classList.add("is-open");
+          modal.setAttribute("aria-hidden", "false");
+          document.body.classList.add("modal-open");
+        }
+      };
+
+      window.closeHomepageMatch = function closeHomepageMatchFallback() {
+        var modal = document.getElementById("matchModal");
+        if (modal) {
+          modal.classList.remove("is-open");
+          modal.setAttribute("aria-hidden", "true");
+        }
+        document.body.classList.remove("modal-open");
+      };
+
+      try {
+        window.applySiteTheme(localStorage.getItem("jerry-site-theme") || "color");
+      } catch (error) {
+        window.applySiteTheme("color");
+      }
+
+      (function initGuaranteedCursorSparkles() {
+        var lastSparkAt = 0;
+
+        function addSpark(event) {
+          var now = performance.now();
+          if (now - lastSparkAt < 70) return;
+          lastSparkAt = now;
+
+          var spark = document.createElement("span");
+          spark.className = "cursor-spark";
+          spark.textContent = "✨";
+          spark.style.left = event.clientX + "px";
+          spark.style.top = event.clientY + "px";
+          spark.style.setProperty("--float-x", Math.round((Math.random() - 0.5) * 46) + "px");
+          spark.style.setProperty("--float-y", Math.round(-28 - Math.random() * 32) + "px");
+          document.body.appendChild(spark);
+          window.setTimeout(function () {
+            spark.remove();
+          }, 1000);
+        }
+
+        window.addEventListener("mousemove", addSpark, { passive: true });
+        window.addEventListener("pointermove", addSpark, { passive: true });
+      })();
+    </script>
+    <script defer src="./script.js"></script>
+  </body>
+</html>

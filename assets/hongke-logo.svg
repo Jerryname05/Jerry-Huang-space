@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 136" role="img" aria-label="HongKe 虹科">
+  <rect width="360" height="136" rx="0" fill="#102f56"/>
+  <text x="68" y="58" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="42" font-weight="800" font-style="italic">HongKe</text>
+  <g fill="#ffffff">
+    <rect x="82" y="78" width="22" height="22" rx="5"/>
+    <rect x="110" y="78" width="22" height="22" rx="5"/>
+    <rect x="138" y="78" width="22" height="22" rx="5"/>
+    <rect x="166" y="78" width="22" height="22" rx="5"/>
+    <rect x="194" y="78" width="22" height="22" rx="5"/>
+    <rect x="222" y="78" width="22" height="22" rx="5"/>
+  </g>
+  <text x="255" y="99" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="800">虹科</text>
+</svg>
