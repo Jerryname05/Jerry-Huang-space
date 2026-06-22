@@ -95,6 +95,7 @@ const typewriterIntro = document.querySelector(".typewriter-intro");
 const xhsProjectLink = document.querySelector("#xhsProjectLink");
 const backHomeButton = document.querySelector("#backHomeButton");
 const homeToast = document.querySelector("#homeToast");
+const internshipCarousel = document.querySelector("[data-internship-carousel]");
 const xhsProfileUrl = "https://xhslink.com/m/3LnX3f5P3QR";
 const previewAudio = new Audio();
 const musicLibrary = [
@@ -165,6 +166,7 @@ initVisitCount();
 syncHeaderState();
 initCursorSparkles();
 initTypewriterIntro();
+initInternshipCarousel();
 
 window.addEventListener("scroll", syncHeaderState, { passive: true });
 window.addEventListener("load", () => window.setTimeout(syncHeaderState, 80));
@@ -190,6 +192,63 @@ document.querySelectorAll('a[href*="xhslink.com"], a[href*="xiaohongshu.com"], #
   link.setAttribute("target", "_blank");
   link.setAttribute("rel", "noopener noreferrer");
 });
+
+function initInternshipCarousel() {
+  if (!internshipCarousel) return;
+
+  const viewport = internshipCarousel.querySelector("[data-internship-viewport]");
+  const track = internshipCarousel.querySelector("[data-internship-track]");
+  const cards = [...internshipCarousel.querySelectorAll(".internship-card")];
+  const prev = internshipCarousel.querySelector("[data-internship-prev]");
+  const next = internshipCarousel.querySelector("[data-internship-next]");
+  const dots = internshipCarousel.querySelector("[data-internship-dots]");
+  let pageCount = 1;
+  let activePage = 0;
+
+  const cardStep = () => {
+    const firstCard = cards[0];
+    if (!firstCard) return viewport.clientWidth;
+    const gap = Number.parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+    return firstCard.getBoundingClientRect().width + gap;
+  };
+
+  const visibleCards = () => Math.max(1, Math.round((viewport.clientWidth + 1) / cardStep()));
+
+  const renderDots = () => {
+    const nextPageCount = Math.max(1, cards.length - visibleCards() + 1);
+    if (nextPageCount !== pageCount || dots.childElementCount !== nextPageCount) {
+      pageCount = nextPageCount;
+      dots.innerHTML = Array.from({ length: pageCount }, (_, index) =>
+        `<button type="button" aria-label="查看第 ${index + 1} 组实习经历" data-internship-page="${index}"></button>`
+      ).join("");
+      dots.querySelectorAll("button").forEach((dot) => {
+        dot.addEventListener("click", () => scrollToPage(Number(dot.dataset.internshipPage)));
+      });
+    }
+  };
+
+  const syncControls = () => {
+    renderDots();
+    activePage = Math.min(pageCount - 1, Math.max(0, Math.round(viewport.scrollLeft / cardStep())));
+    prev.disabled = activePage === 0;
+    next.disabled = activePage === pageCount - 1;
+    dots.querySelectorAll("button").forEach((dot, index) => {
+      dot.classList.toggle("is-active", index === activePage);
+      dot.setAttribute("aria-current", index === activePage ? "true" : "false");
+    });
+  };
+
+  const scrollToPage = (page) => {
+    activePage = Math.min(pageCount - 1, Math.max(0, page));
+    viewport.scrollTo({ left: activePage * cardStep(), behavior: "smooth" });
+  };
+
+  prev.addEventListener("click", () => scrollToPage(activePage - 1));
+  next.addEventListener("click", () => scrollToPage(activePage + 1));
+  viewport.addEventListener("scroll", () => window.requestAnimationFrame(syncControls), { passive: true });
+  window.addEventListener("resize", () => window.requestAnimationFrame(syncControls), { passive: true });
+  syncControls();
+}
 
 loadDemo.addEventListener("click", () => {
   jdText.value = demoJD;

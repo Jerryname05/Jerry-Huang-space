@@ -4028,6 +4028,196 @@ textarea:focus {
 }
 
 /* True final override: placed at the end so later responsive rules cannot undo it. */
+
+/* Internship carousel: 3 cards on desktop, 2 on tablet, 1 on mobile. */
+.internship-carousel {
+  min-width: 0;
+}
+
+.education-stack,
+.education-panel,
+.internship-panel {
+  min-width: 0;
+  max-width: 100%;
+}
+
+.internship-viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 4px 16px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+}
+
+.internship-viewport::-webkit-scrollbar {
+  display: none;
+}
+
+.internship-carousel .internship-grid {
+  display: flex !important;
+  grid-template-columns: none !important;
+  align-items: stretch;
+  gap: 18px;
+}
+
+.internship-carousel .internship-card {
+  flex: 0 0 calc((100% - 36px) / 3);
+  min-width: 0;
+  scroll-snap-align: start;
+}
+
+.internship-card.bluefocus-line::before {
+  background: linear-gradient(90deg, #0756c9, #2f80ed);
+}
+
+.company-logo.bluefocus-logo {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #0756c9;
+  background: linear-gradient(145deg, #f6faff, #e9f2ff);
+  border-color: #cfe1fb;
+  letter-spacing: 0;
+}
+
+.company-logo.bluefocus-logo span {
+  font-size: clamp(19px, 2vw, 25px);
+  font-weight: 950;
+  line-height: 1;
+}
+
+.company-logo.bluefocus-logo small {
+  color: #4d73a4;
+  font-size: 12px;
+  font-weight: 850;
+}
+
+.experience-points {
+  display: grid;
+  gap: 9px;
+  margin: 0 0 18px;
+  padding-left: 20px;
+  color: #4b5d75;
+  font-size: 13.5px;
+  font-weight: 650;
+  line-height: 1.58;
+}
+
+.experience-points li::marker {
+  color: #2563eb;
+}
+
+.internship-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.internship-nav {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  color: #16386b;
+  background: #f4f8fd;
+  border: 1px solid #d4e0ee;
+  border-radius: 50%;
+  box-shadow: 0 9px 24px rgba(29, 57, 104, 0.1);
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+}
+
+.internship-nav:hover:not(:disabled) {
+  color: #ffffff;
+  background: #2563eb;
+  transform: translateY(-2px);
+}
+
+.internship-nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.internship-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 30px;
+}
+
+.internship-dots button {
+  width: 8px;
+  height: 8px;
+  padding: 0;
+  background: #dbe5f0;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.internship-dots button.is-active {
+  width: 24px;
+  background: #2563eb;
+}
+
+[data-theme="mint"] .company-logo.bluefocus-logo {
+  color: #b9d9ff;
+  background: #17283f;
+  border-color: #355273;
+}
+
+[data-theme="mint"] .company-logo.bluefocus-logo small {
+  color: #92add0;
+}
+
+[data-theme="mint"] .experience-points {
+  color: #aabbd2;
+}
+
+[data-theme="mint"] .internship-nav {
+  color: #eef6ff;
+  background: #1a2a40;
+  border-color: #3a506d;
+}
+
+[data-theme="mint"] .internship-dots button {
+  background: #40536e;
+}
+
+[data-theme="mint"] .internship-dots button.is-active {
+  background: #6ea8ff;
+}
+
+@media (max-width: 980px) {
+  .internship-carousel .internship-card {
+    flex-basis: calc((100% - 18px) / 2);
+  }
+}
+
+@media (max-width: 680px) {
+  .internship-carousel .internship-card {
+    flex-basis: 100%;
+  }
+
+  .internship-carousel .internship-grid {
+    gap: 12px;
+  }
+
+  .internship-nav {
+    width: 38px;
+    height: 38px;
+    font-size: 27px;
+  }
+}
+
 @media (min-width: 981px) {
   .hero {
     grid-template-columns: minmax(520px, 1fr) minmax(340px, 430px) !important;
