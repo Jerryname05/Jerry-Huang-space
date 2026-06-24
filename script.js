@@ -96,7 +96,18 @@ const xhsProjectLink = document.querySelector("#xhsProjectLink");
 const backHomeButton = document.querySelector("#backHomeButton");
 const homeToast = document.querySelector("#homeToast");
 const internshipCarousel = document.querySelector("[data-internship-carousel]");
+const workbenchToggle = document.querySelector("#workbenchToggle");
+const workbenchPanel = document.querySelector("#workbenchPanel");
+const workbenchClose = document.querySelector("#workbenchClose");
+const workbenchField = document.querySelector("#workbenchField");
+const workbenchEditor = document.querySelector("#workbenchEditor");
+const workbenchFocus = document.querySelector("#workbenchFocus");
+const workbenchResetField = document.querySelector("#workbenchResetField");
+const workbenchClear = document.querySelector("#workbenchClear");
+const workbenchExport = document.querySelector("#workbenchExport");
+const workbenchStatus = document.querySelector("#workbenchStatus");
 const xhsProfileUrl = "https://xhslink.com/m/3LnX3f5P3QR";
+const WORKBENCH_STORAGE_KEY = "jerry-space-workbench-overrides";
 const previewAudio = new Audio();
 const musicLibrary = [
   {
@@ -165,6 +176,7 @@ initTheme();
 initVisitCount();
 syncHeaderState();
 initCursorSparkles();
+initWorkbench();
 initTypewriterIntro();
 initInternshipCarousel();
 
@@ -204,6 +216,7 @@ function initInternshipCarousel() {
   const dots = internshipCarousel.querySelector("[data-internship-dots]");
   let pageCount = 1;
   let activePage = 0;
+  let syncFrame = 0;
 
   const cardStep = () => {
     const firstCard = cards[0];
@@ -247,11 +260,250 @@ function initInternshipCarousel() {
     viewport.scrollTo({ left: activePage * cardStep(), behavior: "smooth" });
   };
 
+  const scheduleSyncControls = () => {
+    if (syncFrame) return;
+    syncFrame = window.requestAnimationFrame(() => {
+      syncFrame = 0;
+      syncControls();
+    });
+  };
+
   prev.addEventListener("click", () => scrollToPage(activePage - 1));
   next.addEventListener("click", () => scrollToPage(activePage + 1));
-  viewport.addEventListener("scroll", () => window.requestAnimationFrame(syncControls), { passive: true });
-  window.addEventListener("resize", () => window.requestAnimationFrame(syncControls), { passive: true });
+  viewport.addEventListener("scroll", scheduleSyncControls, { passive: true });
+  window.addEventListener("resize", scheduleSyncControls, { passive: true });
   syncControls();
+}
+
+function initWorkbench() {
+  if (!workbenchToggle || !workbenchPanel || !workbenchField || !workbenchEditor) return;
+
+  const fields = getWorkbenchFields();
+  if (!fields.length) return;
+
+  const overrides = loadWorkbenchOverrides();
+  fields.forEach((field) => {
+    field.originalValue = readWorkbenchValue(field);
+    if (Object.prototype.hasOwnProperty.call(overrides, field.key)) {
+      applyWorkbenchValue(field, overrides[field.key]);
+    }
+  });
+
+  workbenchField.innerHTML = fields
+    .map((field) => `<option value="${field.key}">${field.label}</option>`)
+    .join("");
+
+  const renderCurrent = () => renderWorkbenchEditor(fields, overrides);
+
+  workbenchToggle.addEventListener("click", () => setWorkbenchOpen(true));
+  workbenchClose?.addEventListener("click", () => setWorkbenchOpen(false));
+  workbenchField.addEventListener("change", renderCurrent);
+  workbenchFocus?.addEventListener("click", () => focusWorkbenchField(fields));
+  workbenchResetField?.addEventListener("click", () => {
+    const field = getSelectedWorkbenchField(fields);
+    if (!field) return;
+    delete overrides[field.key];
+    resetWorkbenchField(field);
+    saveWorkbenchOverrides(overrides);
+    renderCurrent();
+  });
+  workbenchClear?.addEventListener("click", () => {
+    Object.keys(overrides).forEach((key) => delete overrides[key]);
+    fields.forEach((field) => resetWorkbenchField(field));
+    saveWorkbenchOverrides(overrides);
+    renderCurrent();
+  });
+
+  renderCurrent();
+  updateWorkbenchExport(overrides);
+}
+
+function getWorkbenchFields() {
+  return [...document.querySelectorAll("[data-edit-key]")]
+    .map((node) => ({
+      key: node.dataset.editKey,
+      label: node.dataset.editLabel || node.dataset.editKey,
+      type: node.dataset.editType || (node.tagName === "IMG" ? "image" : "text"),
+      node,
+      originalValue: "",
+    }))
+    .filter((field, index, all) => field.key && all.findIndex((item) => item.key === field.key) === index);
+}
+
+function loadWorkbenchOverrides() {
+  try {
+    return JSON.parse(localStorage.getItem(WORKBENCH_STORAGE_KEY) || "{}");
+  } catch (error) {
+    return {};
+  }
+}
+
+function saveWorkbenchOverrides(overrides) {
+  localStorage.setItem(WORKBENCH_STORAGE_KEY, JSON.stringify(overrides));
+  updateWorkbenchExport(overrides);
+}
+
+function exportWorkbenchOverrides(overrides) {
+  return JSON.stringify(overrides, null, 2);
+}
+
+function updateWorkbenchExport(overrides) {
+  const count = Object.keys(overrides).length;
+  if (workbenchExport) workbenchExport.value = exportWorkbenchOverrides(overrides);
+  if (workbenchStatus) workbenchStatus.textContent = `本地覆盖 ${count} 项`;
+}
+
+function getSelectedWorkbenchField(fields) {
+  const selectedKey = workbenchField?.value || fields[0]?.key;
+  return fields.find((field) => field.key === selectedKey);
+}
+
+function renderWorkbenchEditor(fields, overrides) {
+  const field = getSelectedWorkbenchField(fields);
+  if (!field) return;
+
+  const currentValue = readWorkbenchValue(field);
+  const isImage = field.type === "image";
+  const isTextarea = field.type === "textarea" || field.type === "tags";
+  const scaleValue = isImage ? getWorkbenchImageScale(field) : 100;
+  const control = isImage
+    ? `
+      <div class="workbench-scale-row">
+        <button class="workbench-stepper" id="workbenchScaleMinus" type="button" aria-label="缩小图片">−</button>
+        <input id="workbenchScaleInput" type="range" min="40" max="180" step="5" value="${scaleValue}" />
+        <button class="workbench-stepper" id="workbenchScalePlus" type="button" aria-label="放大图片">+</button>
+        <output id="workbenchScaleValue">${scaleValue}%</output>
+      </div>`
+    : isTextarea
+    ? `<textarea id="workbenchInput" rows="${field.type === "tags" ? 4 : 7}"></textarea>`
+    : `<input id="workbenchInput" type="text" />`;
+  const preview = isImage ? `<div class="workbench-image-preview"><img src="${currentValue}" alt="" /></div>` : "";
+  const hint = field.type === "tags" ? "<small>用逗号或换行分隔</small>" : "";
+
+  workbenchEditor.innerHTML = `
+    <div class="workbench-current">
+      <span>${field.label}</span>
+      <code>${field.key}</code>
+    </div>
+    <label class="workbench-label" for="${isImage ? "workbenchScaleInput" : "workbenchInput"}">${isImage ? "图片缩放" : "内容"}</label>
+    ${control}
+    ${hint}
+    ${preview}
+  `;
+
+  if (isImage) {
+    const slider = workbenchEditor.querySelector("#workbenchScaleInput");
+    const valueLabel = workbenchEditor.querySelector("#workbenchScaleValue");
+    const minus = workbenchEditor.querySelector("#workbenchScaleMinus");
+    const plus = workbenchEditor.querySelector("#workbenchScalePlus");
+    const previewImage = workbenchEditor.querySelector(".workbench-image-preview img");
+    const syncScale = (value) => {
+      const nextScale = clampWorkbenchScale(value);
+      slider.value = String(nextScale);
+      valueLabel.textContent = `${nextScale}%`;
+      overrides[field.key] = String(nextScale);
+      applyWorkbenchImageScale(field, nextScale);
+      previewImage?.style.setProperty("--workbench-image-scale", String(nextScale / 100));
+      saveWorkbenchOverrides(overrides);
+    };
+    previewImage?.style.setProperty("--workbench-image-scale", String(scaleValue / 100));
+    slider.addEventListener("input", () => syncScale(slider.value));
+    minus.addEventListener("click", () => syncScale(Number(slider.value) - 10));
+    plus.addEventListener("click", () => syncScale(Number(slider.value) + 10));
+  } else {
+    const input = workbenchEditor.querySelector("#workbenchInput");
+    input.value = currentValue;
+    input.addEventListener("input", () => {
+      overrides[field.key] = input.value;
+      applyWorkbenchValue(field, input.value);
+      saveWorkbenchOverrides(overrides);
+    });
+  }
+  focusWorkbenchField(fields, { soft: true });
+  updateWorkbenchExport(overrides);
+}
+
+function readWorkbenchValue(field) {
+  if (field.type === "image") return field.node.getAttribute("src") || "";
+  if (field.type === "tags") {
+    return [...field.node.querySelectorAll("span")]
+      .map((tag) => tag.textContent.trim())
+      .filter(Boolean)
+      .join(", ");
+  }
+  if (field.key === "hero.intro") return field.node.dataset.text || field.node.textContent.trim();
+  return field.node.textContent.trim();
+}
+
+function applyWorkbenchValue(field, value) {
+  const nextValue = value || "";
+  if (field.type === "image") {
+    applyWorkbenchImageScale(field, nextValue);
+    return;
+  }
+  if (field.type === "tags") {
+    const tags = nextValue
+      .split(/[,，\n]/)
+      .map((tag) => tag.trim())
+      .filter(Boolean);
+    field.node.innerHTML = tags.map((tag) => `<span>${escapeWorkbenchHtml(tag)}</span>`).join("");
+    return;
+  }
+  field.node.textContent = nextValue;
+  if (field.key === "hero.intro") {
+    field.node.dataset.text = nextValue;
+    field.node.dataset.ready = "true";
+    field.node.classList.add("is-complete");
+  }
+}
+
+function getWorkbenchImageScale(field) {
+  const rawScale = field.node.dataset.workbenchScale || "100";
+  return clampWorkbenchScale(rawScale);
+}
+
+function applyWorkbenchImageScale(field, value) {
+  const scale = clampWorkbenchScale(value);
+  field.node.dataset.workbenchScale = String(scale);
+  field.node.style.setProperty("--workbench-image-scale", String(scale / 100));
+  field.node.style.setProperty("transform", `scale(${scale / 100})`, "important");
+}
+
+function resetWorkbenchField(field) {
+  if (field.type === "image") {
+    field.node.dataset.workbenchScale = "100";
+    field.node.style.removeProperty("--workbench-image-scale");
+    field.node.style.transform = "";
+    return;
+  }
+  applyWorkbenchValue(field, field.originalValue);
+}
+
+function clampWorkbenchScale(value) {
+  const number = Number.parseInt(value, 10);
+  if (Number.isNaN(number)) return 100;
+  return Math.min(180, Math.max(40, number));
+}
+
+function escapeWorkbenchHtml(value) {
+  return value.replace(/[&<>"']/g, (char) => {
+    const entities = { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" };
+    return entities[char];
+  });
+}
+
+function setWorkbenchOpen(isOpen) {
+  workbenchPanel.classList.toggle("is-open", isOpen);
+  workbenchPanel.setAttribute("aria-hidden", isOpen ? "false" : "true");
+  workbenchToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+}
+
+function focusWorkbenchField(fields, options = {}) {
+  const field = getSelectedWorkbenchField(fields);
+  if (!field) return;
+  if (!options.soft) field.node.scrollIntoView({ block: "center", behavior: "smooth" });
+  field.node.classList.add("workbench-highlight");
+  window.setTimeout(() => field.node.classList.remove("workbench-highlight"), options.soft ? 850 : 1600);
 }
 
 loadDemo.addEventListener("click", () => {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jerry Huang Space</title>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
-    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="./styles.css?v=carousel-polish" />
   </head>
   <body>
     <div class="scroll-progress" aria-hidden="true">
@@ -49,7 +49,7 @@
         <aside class="hero-panel" aria-label="核心履历数据">
           <div class="profile-card">
             <p class="profile-pill">👋 Hi，我是 Jerry Huang</p>
-            <h2>黄嘉仪</h2>
+            <h2 data-edit-key="hero.name" data-edit-label="首页姓名" data-edit-type="text">黄嘉仪</h2>
             <p class="profile-school">
               <span>广州商学院（本科） · 市场营销</span>
               <span>中国传媒大学 · 短视频与数字文化传播（辅修）</span>
@@ -76,6 +76,9 @@
             </div>
             <p
               class="profile-intro typewriter-intro"
+              data-edit-key="hero.intro"
+              data-edit-label="首页简介"
+              data-edit-type="textarea"
               data-text="欢迎来到我的个人网站！我是一个超级大 E 人，喜欢和不同领域的新朋友一起把想法落地。求职方向聚焦新媒体运营、内容增长与用户转化，欢迎继续向下探索我的经历与作品。"
             >
               欢迎来到我的个人网站！我是一个超级大 E 人，喜欢和不同领域的新朋友一起把想法落地。求职方向聚焦新媒体运营、内容增长与用户转化，欢迎继续向下探索我的经历与作品。
@@ -215,7 +218,7 @@
                   <li>🏆 中国传媒大学短视频与数字文化传播专业（辅修）</li>
                 </ul>
               </div>
-              <img class="school-photo" src="./personal-hero.jpg" alt="Jerry Huang 个人照片" />
+              <img class="school-photo" src="./personal-hero.jpg" alt="Jerry Huang 个人照片" data-edit-key="education.photo" data-edit-label="教育照片" data-edit-type="image" />
             </div>
             <div class="skill-strip" aria-label="专业技能">
               <h4>专业技能</h4>
@@ -246,43 +249,43 @@
                 <div class="internship-grid" data-internship-track>
                   <article class="internship-card bluefocus-line">
                     <div class="company-logo image-logo bluefocus-logo" aria-label="蓝色光标数字传媒集团">
-                      <img src="./assets/bluefocus-logo.png" alt="蓝色光标 logo" />
+                      <img src="./assets/bluefocus-logo.png" alt="蓝色光标 logo" data-edit-key="internship.bluefocus.logo" data-edit-label="蓝色光标 logo" data-edit-type="image" />
                     </div>
                     <h4>蓝色光标数字传媒集团 <small>（4A）</small></h4>
-                    <p class="role">内容运营</p>
-                    <p class="date">2026.04 - 2026.06</p>
-                    <p>参与海信电视海外传播项目，负责需求拆解、达人/媒体资源筛选、预算排期与供应商对接；使用 AI Agent 清洗海外达人数据，跟进 Brief、成片与链接审核，沉淀优质资源进入达人库。</p>
-                    <div class="mini-tags"><span>项目金额 $35w+</span><span>播放 1000w+</span><span>点赞 10w+</span></div>
+                    <p class="role" data-edit-key="internship.bluefocus.role" data-edit-label="蓝色光标岗位" data-edit-type="text">内容运营</p>
+                    <p class="date" data-edit-key="internship.bluefocus.date" data-edit-label="蓝色光标时间" data-edit-type="text">2026.04 - 2026.06</p>
+                    <p data-edit-key="internship.bluefocus.description" data-edit-label="蓝色光标描述" data-edit-type="textarea">参与海信电视海外传播项目，负责需求拆解、达人/媒体资源筛选、预算排期与供应商对接；使用 AI Agent 清洗海外达人数据，跟进 Brief、成片与链接审核，沉淀优质资源进入达人库。</p>
+                    <div class="mini-tags" data-edit-key="internship.bluefocus.tags" data-edit-label="蓝色光标标签" data-edit-type="tags"><span>项目金额 $35w+</span><span>播放 1000w+</span><span>点赞 10w+</span></div>
                   </article>
                   <article class="internship-card blue-line">
                     <div class="company-logo image-logo paw-logo">
-                      <img src="./assets/paw-logo.jpg" alt="北京 paw 宠物 logo" />
+                      <img src="./assets/paw-logo.jpg" alt="北京 paw 宠物 logo" data-edit-key="internship.paw.logo" data-edit-label="paw logo" data-edit-type="image" />
                     </div>
                     <h4>北京 paw 宠物有限公司</h4>
-                    <p class="role">门店运营增长实习生</p>
-                    <p class="date">2023.11 - 2024.05</p>
-                    <p>负责宠物摄影门店小红书内容运营与私域转化，设计“内容种草-私信咨询-社群承接-预约到店”链路；累计发布 56 篇笔记，单篇最高点击 25w，带动销售 272 单、GMV 45.2w。</p>
-                    <div class="mini-tags"><span>销售272单</span><span>GMV 45.2w</span><span>私域转化60%</span></div>
+                    <p class="role" data-edit-key="internship.paw.role" data-edit-label="paw岗位" data-edit-type="text">门店运营增长实习生</p>
+                    <p class="date" data-edit-key="internship.paw.date" data-edit-label="paw时间" data-edit-type="text">2023.11 - 2024.05</p>
+                    <p data-edit-key="internship.paw.description" data-edit-label="paw描述" data-edit-type="textarea">负责宠物摄影门店小红书内容运营与私域转化，设计“内容种草-私信咨询-社群承接-预约到店”链路；累计发布 56 篇笔记，单篇最高点击 25w，带动销售 272 单、GMV 45.2w。</p>
+                    <div class="mini-tags" data-edit-key="internship.paw.tags" data-edit-label="paw标签" data-edit-type="tags"><span>销售272单</span><span>GMV 45.2w</span><span>私域转化60%</span></div>
                   </article>
                   <article class="internship-card purple-line">
                     <div class="company-logo image-logo freshman-logo">
-                      <img src="./assets/freshman-logo.jpg" alt="Freshman.academy logo" />
+                      <img src="./assets/freshman-logo.jpg" alt="Freshman.academy logo" data-edit-key="internship.freshman.logo" data-edit-label="Freshman logo" data-edit-type="image" />
                     </div>
                     <h4>Freshman.academy <small>（上海分部）</small></h4>
-                    <p class="role">市场部</p>
-                    <p class="date">2024.7 - 2025.12</p>
-                    <p>负责美国文书业务板块内容矩阵与获客增长，沉淀爆款标题、首图、故事线与评论区问题模板；产出小红书笔记 125 篇，最高浏览 12w，公众号累计曝光 100w+。</p>
-                    <div class="mini-tags"><span>125篇笔记</span><span>曝光100w+</span><span>转化率69%</span></div>
+                    <p class="role" data-edit-key="internship.freshman.role" data-edit-label="Freshman岗位" data-edit-type="text">市场部</p>
+                    <p class="date" data-edit-key="internship.freshman.date" data-edit-label="Freshman时间" data-edit-type="text">2024.7 - 2025.12</p>
+                    <p data-edit-key="internship.freshman.description" data-edit-label="Freshman描述" data-edit-type="textarea">负责美国文书业务板块内容矩阵与获客增长，沉淀爆款标题、首图、故事线与评论区问题模板；产出小红书笔记 125 篇，最高浏览 12w，公众号累计曝光 100w+。</p>
+                    <div class="mini-tags" data-edit-key="internship.freshman.tags" data-edit-label="Freshman标签" data-edit-type="tags"><span>125篇笔记</span><span>曝光100w+</span><span>转化率69%</span></div>
                   </article>
                   <article class="internship-card red-line">
                     <div class="company-logo image-logo hongke-logo">
-                      <img src="./assets/hongke-logo.png" alt="广州虹科电子 logo" />
+                      <img src="./assets/hongke-logo.png" alt="广州虹科电子 logo" data-edit-key="internship.hongke.logo" data-edit-label="虹科 logo" data-edit-type="image" />
                     </div>
                     <h4>广州虹科电子有限公司</h4>
-                    <p class="role">内容运营</p>
-                    <p class="date">2025.9 - 2025.11</p>
-                    <p>负责京东、1688、淘宝等平台新品上架及 SPU 更新，梳理 9 个事业部产品卖点，完成 2000+ 次上下架与 170+ 张视觉物料模版；通过 PCAN 接口线 A/B 测流推动销量环比增长 28.8%。</p>
-                    <div class="mini-tags"><span>上下架2000+</span><span>物料模版170+</span><span>销量+28.8%</span></div>
+                    <p class="role" data-edit-key="internship.hongke.role" data-edit-label="虹科岗位" data-edit-type="text">内容运营</p>
+                    <p class="date" data-edit-key="internship.hongke.date" data-edit-label="虹科时间" data-edit-type="text">2025.9 - 2025.11</p>
+                    <p data-edit-key="internship.hongke.description" data-edit-label="虹科描述" data-edit-type="textarea">负责京东、1688、淘宝等平台新品上架及 SPU 更新，梳理 9 个事业部产品卖点，完成 2000+ 次上下架与 170+ 张视觉物料模版；通过 PCAN 接口线 A/B 测流推动销量环比增长 28.8%。</p>
+                    <div class="mini-tags" data-edit-key="internship.hongke.tags" data-edit-label="虹科标签" data-edit-type="tags"><span>上下架2000+</span><span>物料模版170+</span><span>销量+28.8%</span></div>
                   </article>
                 </div>
               </div>
@@ -303,7 +306,7 @@
         </div>
         <div class="project-grid">
           <article class="project-card feature-project">
-            <img class="project-avatar" src="./assets/xhs-avatar.jpg" alt="小红书账号头像" />
+            <img class="project-avatar" src="./assets/xhs-avatar.jpg" alt="小红书账号头像" data-edit-key="projects.xhsAvatar" data-edit-label="小红书头像" data-edit-type="image" />
             <span class="project-icon">📕</span>
             <div>
               <h3>小红书运营手</h3>
@@ -398,13 +401,36 @@
             <h3>微信联系</h3>
             <p>扫描二维码添加微信，欢迎交流合作</p>
             <div class="qr-frame">
-              <img src="./assets/wechat-qr.jpg" alt="Jerry Huang 微信二维码" />
+              <img src="./assets/wechat-qr.jpg" alt="Jerry Huang 微信二维码" data-edit-key="contact.wechatQr" data-edit-label="微信二维码" data-edit-type="image" />
             </div>
             <p class="qr-note">扫一扫上面的二维码图案，加我为朋友。</p>
           </article>
         </div>
       </section>
     </main>
+
+    <button class="workbench-fab" id="workbenchToggle" type="button" aria-label="打开快捷修改工作台">⚙</button>
+    <aside class="workbench-panel" id="workbenchPanel" aria-hidden="true">
+      <div class="workbench-head">
+        <div>
+          <strong>蓝色工作台</strong>
+          <span id="workbenchStatus">本地覆盖 0 项</span>
+        </div>
+        <button class="workbench-close" id="workbenchClose" type="button" aria-label="关闭工作台">×</button>
+      </div>
+      <div class="workbench-body">
+        <label class="workbench-label" for="workbenchField">字段</label>
+        <select id="workbenchField"></select>
+        <div class="workbench-editor" id="workbenchEditor"></div>
+        <div class="workbench-actions">
+          <button class="workbench-action" id="workbenchFocus" type="button">定位</button>
+          <button class="workbench-action" id="workbenchResetField" type="button">还原当前</button>
+          <button class="workbench-action ghost" id="workbenchClear" type="button">清空全部</button>
+        </div>
+        <label class="workbench-label" for="workbenchExport">导出 JSON</label>
+        <textarea id="workbenchExport" readonly></textarea>
+      </div>
+    </aside>
 
     <footer class="site-footer">
       <p>© 2026 Jerry Huang · All rights reserved.</p>
@@ -740,6 +766,6 @@
         window.addEventListener("pointermove", addSpark, { passive: true });
       })();
     </script>
-    <script defer src="./script.js"></script>
+    <script defer src="./script.js?v=carousel-polish"></script>
   </body>
 </html>
