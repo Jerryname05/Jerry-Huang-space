@@ -4073,25 +4073,16 @@ textarea:focus {
 }
 
 .company-logo.bluefocus-logo {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  color: #0756c9;
-  background: linear-gradient(145deg, #f6faff, #e9f2ff);
+  background: linear-gradient(145deg, #f8fbff, #edf5ff);
   border-color: #cfe1fb;
-  letter-spacing: 0;
 }
 
-.company-logo.bluefocus-logo span {
-  font-size: clamp(19px, 2vw, 25px);
-  font-weight: 950;
-  line-height: 1;
-}
-
-.company-logo.bluefocus-logo small {
-  color: #4d73a4;
-  font-size: 12px;
-  font-weight: 850;
+.company-logo.bluefocus-logo img {
+  width: min(82%, 236px);
+  max-width: 236px;
+  max-height: 72px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .experience-points {
@@ -4169,13 +4160,8 @@ textarea:focus {
 }
 
 [data-theme="mint"] .company-logo.bluefocus-logo {
-  color: #b9d9ff;
-  background: #17283f;
-  border-color: #355273;
-}
-
-[data-theme="mint"] .company-logo.bluefocus-logo small {
-  color: #92add0;
+  background: linear-gradient(145deg, #f8fbff, #edf5ff);
+  border-color: #6d8bb4;
 }
 
 [data-theme="mint"] .experience-points {
@@ -4287,6 +4273,494 @@ textarea:focus {
     margin-top: 0 !important;
     font-size: 12.5px !important;
     line-height: 1.54 !important;
+  }
+}
+
+/* Final internship height lock: keep the carousel cards visually taller in Chrome. */
+.internship-panel {
+  padding-bottom: clamp(50px, 5.2vw, 78px) !important;
+}
+
+.internship-viewport {
+  padding: 10px 6px 38px !important;
+}
+
+.internship-carousel .internship-grid {
+  align-items: stretch !important;
+}
+
+.internship-carousel .internship-card {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: clamp(560px, 39vw, 660px) !important;
+  padding: clamp(32px, 2.8vw, 42px) !important;
+}
+
+.internship-carousel .company-logo {
+  min-height: clamp(145px, 10vw, 172px) !important;
+  margin-bottom: 28px !important;
+  padding: 22px 28px !important;
+}
+
+.internship-carousel .company-logo.bluefocus-logo img {
+  width: min(78%, 260px) !important;
+  max-width: 260px !important;
+  max-height: 72px !important;
+}
+
+.internship-carousel .company-logo.paw-logo img,
+.internship-carousel .company-logo.freshman-logo img {
+  width: 78px !important;
+  height: 78px !important;
+  max-width: 78px !important;
+  max-height: 78px !important;
+}
+
+.internship-carousel .company-logo.hongke-logo img {
+  max-height: 66px !important;
+}
+
+.internship-carousel .internship-card h4 {
+  margin-bottom: 12px !important;
+  line-height: 1.3 !important;
+}
+
+.internship-carousel .internship-card .role,
+.internship-carousel .internship-card .date {
+  margin-bottom: 17px !important;
+}
+
+.internship-carousel .internship-card > p:not(.role):not(.date) {
+  margin-bottom: 28px !important;
+  line-height: 1.76 !important;
+}
+
+.internship-carousel .mini-tags {
+  margin-top: auto !important;
+}
+
+.internship-controls {
+  margin-top: 22px !important;
+}
+
+@media (max-width: 980px) {
+  .internship-carousel .internship-card {
+    min-height: 540px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .internship-carousel .internship-card {
+    min-height: auto !important;
+    padding: 24px !important;
+  }
+
+  .internship-carousel .company-logo {
+    min-height: 110px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .internship-carousel .company-logo.bluefocus-logo img {
+    max-height: 56px !important;
+  }
+
+  .internship-controls {
+    margin-top: 12px !important;
+  }
+}
+
+/* Ultimate reference lock: match the compact centered screenshot proportions. */
+#education .education-stack {
+  max-width: 1180px !important;
+  margin-inline: auto !important;
+}
+
+#education .internship-panel {
+  max-width: 1180px !important;
+  margin: 26px auto 0 !important;
+  padding: 36px 46px 42px !important;
+  border-radius: 24px !important;
+}
+
+#education .internship-panel .panel-title {
+  margin-bottom: 30px !important;
+}
+
+#education .internship-panel .panel-title h3 {
+  font-size: clamp(28px, 2vw, 34px) !important;
+}
+
+#education .internship-viewport {
+  padding: 0 0 20px !important;
+  overflow: hidden !important;
+}
+
+#education .internship-carousel .internship-grid {
+  gap: 24px !important;
+  align-items: stretch !important;
+}
+
+#education .internship-carousel .internship-card {
+  flex: 0 0 calc((100% - 48px) / 3) !important;
+  min-height: 438px !important;
+  padding: 24px !important;
+  border-radius: 16px !important;
+}
+
+#education .internship-carousel .company-logo {
+  min-height: 92px !important;
+  margin-bottom: 22px !important;
+  padding: 14px 20px !important;
+  border-radius: 14px !important;
+}
+
+#education .internship-carousel .company-logo.bluefocus-logo img {
+  width: min(84%, 235px) !important;
+  max-width: 235px !important;
+  max-height: 54px !important;
+}
+
+#education .internship-carousel .company-logo.hongke-logo img {
+  width: min(78%, 215px) !important;
+  max-width: 215px !important;
+  max-height: 48px !important;
+  object-fit: contain !important;
+}
+
+#education .internship-carousel .company-logo.paw-logo img,
+#education .internship-carousel .company-logo.freshman-logo img {
+  width: 62px !important;
+  height: 62px !important;
+  max-width: 62px !important;
+  max-height: 62px !important;
+}
+
+#education .internship-carousel .internship-card h4 {
+  margin-bottom: 8px !important;
+  font-size: clamp(19px, 1.4vw, 24px) !important;
+  line-height: 1.28 !important;
+}
+
+#education .internship-carousel .internship-card h4 small {
+  font-size: 0.72em !important;
+}
+
+#education .internship-carousel .internship-card .role,
+#education .internship-carousel .internship-card .date {
+  margin-bottom: 12px !important;
+  font-size: clamp(14px, 0.95vw, 16px) !important;
+  line-height: 1.35 !important;
+}
+
+#education .internship-carousel .internship-card > p:not(.role):not(.date) {
+  margin-bottom: 18px !important;
+  font-size: clamp(13px, 0.9vw, 15px) !important;
+  line-height: 1.72 !important;
+}
+
+#education .internship-carousel .mini-tags {
+  gap: 8px !important;
+  margin-top: auto !important;
+}
+
+#education .internship-carousel .mini-tags span {
+  padding: 5px 12px !important;
+  font-size: 13px !important;
+}
+
+#education .internship-controls {
+  margin-top: 14px !important;
+}
+
+@media (max-width: 980px) {
+  #education .internship-panel {
+    max-width: calc(100vw - 28px) !important;
+    padding: 28px 24px 34px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: calc((100% - 18px) / 2) !important;
+    min-height: 430px !important;
+  }
+
+  #education .internship-carousel .internship-grid {
+    gap: 18px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  #education .internship-panel {
+    margin-top: 18px !important;
+    padding: 24px 20px 28px !important;
+  }
+
+  #education .internship-panel .panel-title {
+    margin-bottom: 18px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: 100% !important;
+    min-height: auto !important;
+    padding: 22px !important;
+  }
+
+  #education .internship-carousel .company-logo {
+    min-height: 92px !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+/* Final reference-size lock: compact centered internship carousel. */
+#education .education-stack {
+  max-width: 1180px !important;
+  margin-inline: auto !important;
+}
+
+#education .internship-panel {
+  max-width: 1180px !important;
+  margin-inline: auto !important;
+  padding: clamp(36px, 3vw, 48px) clamp(34px, 3.2vw, 50px) clamp(42px, 3.4vw, 56px) !important;
+  border-radius: 24px !important;
+}
+
+#education .internship-panel .panel-title {
+  margin-bottom: clamp(30px, 2.8vw, 38px) !important;
+}
+
+#education .internship-viewport {
+  padding: 0 0 30px !important;
+  overflow-x: auto !important;
+}
+
+#education .internship-carousel .internship-grid {
+  gap: clamp(18px, 1.6vw, 22px) !important;
+  align-items: stretch !important;
+}
+
+#education .internship-carousel .internship-card {
+  flex: 0 0 calc((100% - 44px) / 3) !important;
+  min-height: clamp(430px, 30vw, 490px) !important;
+  padding: clamp(24px, 2vw, 30px) !important;
+  border-radius: 18px !important;
+}
+
+#education .internship-carousel .company-logo {
+  min-height: clamp(104px, 7.5vw, 122px) !important;
+  margin-bottom: 22px !important;
+  padding: 16px 22px !important;
+  border-radius: 16px !important;
+  background: linear-gradient(145deg, #f8fbff, #eef5ff) !important;
+}
+
+#education .internship-carousel .company-logo.bluefocus-logo img {
+  width: min(74%, 240px) !important;
+  max-width: 240px !important;
+  max-height: 68px !important;
+  object-fit: contain !important;
+}
+
+#education .internship-carousel .company-logo.hongke-logo img {
+  width: min(72%, 220px) !important;
+  max-width: 220px !important;
+  max-height: 56px !important;
+  object-fit: contain !important;
+}
+
+#education .internship-carousel .company-logo.paw-logo img,
+#education .internship-carousel .company-logo.freshman-logo img {
+  width: 74px !important;
+  height: 74px !important;
+  max-width: 74px !important;
+  max-height: 74px !important;
+  object-fit: contain !important;
+}
+
+#education .internship-carousel .internship-card h4 {
+  margin-bottom: 10px !important;
+  font-size: clamp(21px, 1.65vw, 24px) !important;
+  line-height: 1.28 !important;
+}
+
+#education .internship-carousel .internship-card h4 small {
+  margin-left: 8px !important;
+  font-size: 0.62em !important;
+}
+
+#education .internship-carousel .internship-card .role,
+#education .internship-carousel .internship-card .date {
+  margin-bottom: 14px !important;
+  font-size: 15px !important;
+}
+
+#education .internship-carousel .internship-card > p:not(.role):not(.date) {
+  margin-bottom: 20px !important;
+  font-size: 15px !important;
+  line-height: 1.68 !important;
+}
+
+#education .internship-carousel .mini-tags {
+  margin-top: auto !important;
+  gap: 8px !important;
+}
+
+#education .internship-carousel .mini-tags span {
+  padding: 6px 12px !important;
+  font-size: 13px !important;
+}
+
+#education .internship-controls {
+  margin-top: 18px !important;
+}
+
+@media (max-width: 980px) {
+  #education .education-stack,
+  #education .internship-panel {
+    max-width: calc(100% - 32px) !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: calc((100% - 22px) / 2) !important;
+    min-height: 440px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  #education .education-stack,
+  #education .internship-panel {
+    max-width: calc(100% - 20px) !important;
+  }
+
+  #education .internship-panel {
+    padding: 22px 18px 28px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: 100% !important;
+    min-height: auto !important;
+    padding: 22px !important;
+  }
+
+  #education .internship-carousel .company-logo {
+    min-height: 92px !important;
+    margin-bottom: 18px !important;
+  }
+
+  #education .internship-carousel .internship-card h4 {
+    font-size: 21px !important;
+  }
+
+  #education .internship-carousel .internship-card > p:not(.role):not(.date) {
+    font-size: 14px !important;
+    line-height: 1.62 !important;
+  }
+}
+
+/* Final tall-card override: last rule wins, so Chrome keeps internship cards vertical. */
+.internship-panel {
+  padding-bottom: clamp(50px, 5.2vw, 78px) !important;
+}
+
+.internship-viewport {
+  padding: 10px 6px 38px !important;
+}
+
+.internship-carousel .internship-grid {
+  align-items: stretch !important;
+}
+
+.internship-carousel .internship-card {
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: clamp(560px, 39vw, 660px) !important;
+  padding: clamp(32px, 2.8vw, 42px) !important;
+}
+
+.internship-carousel .company-logo {
+  min-height: clamp(145px, 10vw, 172px) !important;
+  margin-bottom: 28px !important;
+  padding: 22px 28px !important;
+}
+
+.internship-carousel .company-logo.bluefocus-logo img {
+  width: min(78%, 260px) !important;
+  max-width: 260px !important;
+  max-height: 72px !important;
+}
+
+.internship-carousel .company-logo.paw-logo img,
+.internship-carousel .company-logo.freshman-logo img {
+  width: 82px !important;
+  height: 82px !important;
+  max-width: 82px !important;
+  max-height: 82px !important;
+}
+
+.internship-carousel .company-logo.hongke-logo img {
+  max-height: 66px !important;
+}
+
+.internship-carousel .internship-card h4 {
+  margin-bottom: 12px !important;
+  line-height: 1.3 !important;
+}
+
+.internship-carousel .internship-card .role,
+.internship-carousel .internship-card .date {
+  margin-bottom: 17px !important;
+}
+
+.internship-carousel .internship-card > p:not(.role):not(.date) {
+  margin-bottom: 28px !important;
+  line-height: 1.76 !important;
+}
+
+.internship-carousel .mini-tags {
+  margin-top: auto !important;
+}
+
+.internship-controls {
+  margin-top: 22px !important;
+}
+
+@media (max-width: 980px) {
+  .internship-carousel .internship-card {
+    min-height: 540px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  .internship-panel {
+    padding-bottom: 34px !important;
+  }
+
+  .internship-viewport {
+    padding-bottom: 24px !important;
+  }
+
+  .internship-carousel .internship-card {
+    min-height: auto !important;
+    padding: 24px !important;
+  }
+
+  .internship-carousel .company-logo {
+    min-height: 110px !important;
+    margin-bottom: 18px !important;
+  }
+
+  .internship-carousel .company-logo.bluefocus-logo img {
+    max-height: 56px !important;
+  }
+
+  .internship-carousel .company-logo.paw-logo img,
+  .internship-carousel .company-logo.freshman-logo img {
+    width: 76px !important;
+    height: 76px !important;
+    max-width: 76px !important;
+    max-height: 76px !important;
+  }
+
+  .internship-controls {
+    margin-top: 12px !important;
   }
 }
 
@@ -4425,6 +4899,99 @@ textarea:focus {
     margin-top: 0 !important;
     font-size: 12.5px !important;
     line-height: 1.54 !important;
+  }
+}
+
+/* Final internship proportion lock: keep cards taller and balanced in Chrome. */
+.internship-panel {
+  padding-bottom: clamp(34px, 4vw, 56px);
+}
+
+.internship-viewport {
+  padding: 8px 4px 24px;
+}
+
+.internship-carousel .internship-grid {
+  align-items: stretch;
+}
+
+.internship-carousel .internship-card {
+  display: flex !important;
+  flex-direction: column;
+  min-height: clamp(455px, 32vw, 535px);
+  padding: clamp(26px, 2.25vw, 34px);
+}
+
+.internship-carousel .company-logo {
+  min-height: clamp(116px, 8.8vw, 140px);
+  margin-bottom: 22px;
+  padding: 18px 24px;
+}
+
+.internship-carousel .company-logo.bluefocus-logo img {
+  width: min(78%, 252px);
+  max-width: 252px;
+  max-height: 68px;
+}
+
+.internship-carousel .company-logo.paw-logo img,
+.internship-carousel .company-logo.freshman-logo img {
+  width: 76px;
+  height: 76px;
+  max-width: 76px;
+  max-height: 76px;
+}
+
+.internship-carousel .company-logo.hongke-logo img {
+  max-height: 62px;
+}
+
+.internship-carousel .internship-card h4 {
+  margin-bottom: 9px;
+  line-height: 1.3;
+}
+
+.internship-carousel .internship-card .role,
+.internship-carousel .internship-card .date {
+  margin-bottom: 14px;
+}
+
+.internship-carousel .internship-card > p:not(.role):not(.date) {
+  margin-bottom: 22px;
+  line-height: 1.7;
+}
+
+.internship-carousel .mini-tags {
+  margin-top: auto;
+}
+
+.internship-controls {
+  margin-top: 16px;
+}
+
+@media (max-width: 980px) {
+  .internship-carousel .internship-card {
+    min-height: 480px;
+  }
+}
+
+@media (max-width: 680px) {
+  .internship-carousel .internship-card {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .internship-carousel .company-logo {
+    min-height: 106px;
+    margin-bottom: 18px;
+  }
+
+  .internship-carousel .company-logo.bluefocus-logo img {
+    max-height: 54px;
+  }
+
+  .internship-controls {
+    margin-top: 12px;
   }
 }
 
@@ -4699,6 +5266,16 @@ textarea:focus {
   transform: none !important;
 }
 
+.company-logo.bluefocus-logo img {
+  width: min(84%, 250px);
+  max-width: 250px;
+  max-height: 70px;
+  filter: none !important;
+  opacity: 1 !important;
+  object-fit: contain;
+  object-position: center;
+}
+
 .internship-card:hover .company-logo.hongke-logo img {
   transform: scale(1.05) !important;
 }
@@ -4944,6 +5521,11 @@ textarea:focus {
     max-height: 48px;
   }
 
+  .company-logo.bluefocus-logo img {
+    width: min(82%, 210px);
+    max-height: 48px;
+  }
+
   .music-pill {
     width: 48px !important;
     min-height: 48px !important;
@@ -5026,5 +5608,733 @@ textarea:focus {
     margin-top: 0 !important;
     font-size: 12.5px !important;
     line-height: 1.54 !important;
+  }
+}
+
+/* Internship reference lock: compact centered carousel matching the provided desktop proportions. */
+#education .education-stack {
+  max-width: 1220px !important;
+  margin-inline: auto !important;
+}
+
+#education .internship-panel {
+  width: min(1220px, calc(100vw - 80px)) !important;
+  max-width: 1220px !important;
+  margin: 28px auto 0 !important;
+  padding: 36px 46px 44px !important;
+  border-radius: 24px !important;
+}
+
+#education .internship-panel .panel-title {
+  gap: 18px !important;
+  margin-bottom: 28px !important;
+}
+
+#education .internship-panel .panel-icon {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 13px !important;
+  font-size: 24px !important;
+}
+
+#education .internship-panel .panel-title h3 {
+  font-size: clamp(25px, 2vw, 34px) !important;
+  line-height: 1.12 !important;
+}
+
+#education .internship-viewport {
+  margin: 0 !important;
+  padding: 0 0 26px !important;
+  overflow: hidden !important;
+}
+
+#education .internship-carousel .internship-grid {
+  display: flex !important;
+  gap: 24px !important;
+  align-items: stretch !important;
+  padding: 0 !important;
+}
+
+#education .internship-carousel .internship-card {
+  flex: 0 0 calc((100% - 48px) / 3) !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: 485px !important;
+  padding: 26px !important;
+  border-radius: 16px !important;
+  box-shadow: 0 14px 34px rgba(39, 78, 130, 0.06) !important;
+}
+
+#education .internship-carousel .company-logo {
+  width: 100% !important;
+  height: 92px !important;
+  min-height: 92px !important;
+  margin: 0 0 22px !important;
+  padding: 12px 18px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 14px !important;
+  background: linear-gradient(180deg, #f5f9ff 0%, #edf4ff 100%) !important;
+  border: 1px solid #d7e6fb !important;
+}
+
+#education .internship-carousel .company-logo.bluefocus-logo img {
+  width: auto !important;
+  max-width: 250px !important;
+  max-height: 58px !important;
+  object-fit: contain !important;
+}
+
+#education .internship-carousel .company-logo.hongke-logo img {
+  width: auto !important;
+  max-width: 230px !important;
+  max-height: 54px !important;
+  object-fit: contain !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+#education .internship-carousel .company-logo.paw-logo img,
+#education .internship-carousel .company-logo.freshman-logo img {
+  width: 68px !important;
+  height: 68px !important;
+  max-width: 68px !important;
+  max-height: 68px !important;
+  object-fit: contain !important;
+  border-radius: 50% !important;
+}
+
+#education .internship-carousel .internship-card h4 {
+  margin-bottom: 8px !important;
+  font-size: clamp(20px, 1.55vw, 26px) !important;
+  line-height: 1.28 !important;
+}
+
+#education .internship-carousel .internship-card h4 small {
+  margin-left: 10px !important;
+  font-size: 0.58em !important;
+}
+
+#education .internship-carousel .internship-card .role,
+#education .internship-carousel .internship-card .date {
+  margin-bottom: 14px !important;
+  font-size: clamp(14px, 1vw, 16px) !important;
+  line-height: 1.35 !important;
+}
+
+#education .internship-carousel .internship-card > p:not(.role):not(.date) {
+  margin: 0 0 18px !important;
+  font-size: clamp(14px, 1vw, 16px) !important;
+  line-height: 1.62 !important;
+}
+
+#education .internship-carousel .mini-tags {
+  margin-top: auto !important;
+  gap: 8px !important;
+}
+
+#education .internship-carousel .mini-tags span {
+  min-height: 26px !important;
+  padding: 5px 13px !important;
+  font-size: 13px !important;
+  border-radius: 999px !important;
+}
+
+#education .internship-controls {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 12px !important;
+  margin: 0 !important;
+}
+
+#education .internship-nav {
+  width: 36px !important;
+  height: 36px !important;
+  font-size: 28px !important;
+}
+
+#education .internship-dots {
+  gap: 7px !important;
+}
+
+@media (max-width: 980px) {
+  #education .internship-panel {
+    width: min(760px, calc(100vw - 32px)) !important;
+    padding: 30px 30px 34px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: calc((100% - 18px) / 2) !important;
+    min-height: 455px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  #education .internship-panel {
+    width: min(430px, calc(100vw - 24px)) !important;
+    padding: 22px 18px 26px !important;
+    border-radius: 20px !important;
+  }
+
+  #education .internship-panel .panel-title {
+    margin-bottom: 20px !important;
+  }
+
+  #education .internship-carousel .internship-grid {
+    gap: 14px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: 100% !important;
+    min-height: auto !important;
+    padding: 20px !important;
+  }
+
+  #education .internship-carousel .company-logo {
+    height: 86px !important;
+    min-height: 86px !important;
+    margin-bottom: 18px !important;
+  }
+
+  #education .internship-carousel .company-logo.bluefocus-logo img,
+  #education .internship-carousel .company-logo.hongke-logo img {
+    max-width: 210px !important;
+    max-height: 48px !important;
+  }
+
+  #education .internship-carousel .internship-card h4 {
+    font-size: 24px !important;
+  }
+}
+
+/* Final P2 proportion lock: keep the internship carousel centered, taller, and responsive. */
+#education .education-stack {
+  width: min(100%, 1220px) !important;
+  max-width: 1220px !important;
+  margin-inline: auto !important;
+}
+
+#education .internship-panel {
+  width: min(1220px, calc(100vw - 160px)) !important;
+  max-width: 1220px !important;
+  margin: 34px auto 0 !important;
+  padding: 34px 42px 42px !important;
+  border-radius: 24px !important;
+}
+
+#education .internship-panel .panel-title {
+  gap: 18px !important;
+  margin-bottom: 30px !important;
+}
+
+#education .internship-panel .panel-icon {
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 14px !important;
+  font-size: 22px !important;
+}
+
+#education .internship-panel .panel-title h3 {
+  font-size: clamp(26px, 1.9vw, 32px) !important;
+  line-height: 1.15 !important;
+}
+
+#education .internship-viewport {
+  overflow: hidden !important;
+  padding-bottom: 28px !important;
+}
+
+#education .internship-carousel .internship-grid {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 24px !important;
+}
+
+#education .internship-carousel .internship-card {
+  flex: 0 0 calc((100% - 48px) / 3) !important;
+  min-height: 510px !important;
+  padding: 24px 24px 26px !important;
+  border-radius: 16px !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+#education .internship-carousel .company-logo {
+  height: 112px !important;
+  min-height: 112px !important;
+  margin-bottom: 24px !important;
+  padding: 14px 18px !important;
+  border-radius: 14px !important;
+  border: 1px solid #d7e6fb !important;
+  background: linear-gradient(180deg, #f7fbff 0%, #edf5ff 100%) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#education .internship-carousel .company-logo.bluefocus-logo img {
+  width: auto !important;
+  max-width: 265px !important;
+  max-height: 64px !important;
+  object-fit: contain !important;
+}
+
+#education .internship-carousel .company-logo.hongke-logo img {
+  width: auto !important;
+  max-width: 235px !important;
+  max-height: 58px !important;
+  object-fit: contain !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+#education .internship-carousel .company-logo.paw-logo img,
+#education .internship-carousel .company-logo.freshman-logo img {
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: 50% !important;
+  object-fit: contain !important;
+}
+
+#education .internship-carousel .internship-card h4 {
+  font-size: clamp(20px, 1.35vw, 24px) !important;
+  line-height: 1.25 !important;
+  margin-bottom: 8px !important;
+}
+
+#education .internship-carousel .internship-card h4 small {
+  font-size: 0.58em !important;
+  margin-left: 10px !important;
+}
+
+#education .internship-card .role,
+#education .internship-card .date {
+  font-size: clamp(13.5px, 0.9vw, 15px) !important;
+  line-height: 1.35 !important;
+  margin-bottom: 14px !important;
+}
+
+#education .internship-card > p:not(.role):not(.date) {
+  font-size: clamp(13.2px, 0.88vw, 14.5px) !important;
+  line-height: 1.72 !important;
+  margin-bottom: 18px !important;
+}
+
+#education .internship-carousel .mini-tags {
+  margin-top: auto !important;
+  gap: 8px !important;
+}
+
+#education .internship-carousel .mini-tags span {
+  min-height: 26px !important;
+  padding: 5px 13px !important;
+  font-size: 12.5px !important;
+}
+
+[data-theme="dark"] #education .internship-carousel .company-logo {
+  background: linear-gradient(180deg, #f7fbff 0%, #edf5ff 100%) !important;
+  border-color: #d7e6fb !important;
+}
+
+[data-theme="dark"] #education .internship-carousel .company-logo.hongke-logo img {
+  filter: none !important;
+  opacity: 1 !important;
+}
+
+@media (max-width: 1400px) {
+  #education .internship-panel {
+    width: min(1120px, calc(100vw - 72px)) !important;
+    padding: 32px 34px 38px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    min-height: 500px !important;
+    padding: 22px !important;
+  }
+
+  #education .internship-carousel .company-logo {
+    height: 104px !important;
+    min-height: 104px !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  #education .internship-panel {
+    width: min(880px, calc(100vw - 36px)) !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: calc((100% - 22px) / 2) !important;
+    min-height: 480px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  #education .internship-panel {
+    width: min(430px, calc(100vw - 20px)) !important;
+    padding: 22px 16px 26px !important;
+  }
+
+  #education .internship-carousel .internship-grid {
+    gap: 14px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: 100% !important;
+    min-height: auto !important;
+    padding: 20px !important;
+  }
+
+  #education .internship-carousel .company-logo {
+    height: 92px !important;
+    min-height: 92px !important;
+    margin-bottom: 18px !important;
+  }
+
+  #education .internship-carousel .internship-card h4 {
+    font-size: 23px !important;
+  }
+
+  #education .internship-card > p:not(.role):not(.date) {
+    font-size: 14px !important;
+    line-height: 1.65 !important;
+  }
+}
+
+/* Final P2 reference sizing: compact desktop card rhythm, centered and not stretched. */
+#education .internship-panel {
+  width: min(1180px, calc(100vw - 120px)) !important;
+  padding: 28px 38px 34px !important;
+}
+
+#education .internship-panel .panel-title {
+  margin-bottom: 28px !important;
+}
+
+#education .internship-carousel .internship-grid {
+  gap: 20px !important;
+}
+
+#education .internship-carousel .internship-card {
+  flex: 0 0 calc((100% - 40px) / 3) !important;
+  min-height: 410px !important;
+  padding: 20px 20px 22px !important;
+}
+
+#education .internship-carousel .company-logo {
+  height: 102px !important;
+  min-height: 102px !important;
+  margin-bottom: 20px !important;
+}
+
+#education .internship-carousel .company-logo.bluefocus-logo img {
+  max-width: 250px !important;
+  max-height: 58px !important;
+}
+
+#education .internship-carousel .company-logo.hongke-logo img {
+  max-width: 220px !important;
+  max-height: 54px !important;
+}
+
+#education .internship-carousel .company-logo.paw-logo img,
+#education .internship-carousel .company-logo.freshman-logo img {
+  width: 64px !important;
+  height: 64px !important;
+}
+
+#education .internship-carousel .internship-card h4 {
+  font-size: clamp(18px, 1.15vw, 22px) !important;
+  line-height: 1.28 !important;
+}
+
+#education .internship-card .role,
+#education .internship-card .date {
+  font-size: 14px !important;
+  margin-bottom: 12px !important;
+}
+
+#education .internship-card > p:not(.role):not(.date) {
+  font-size: 13.5px !important;
+  line-height: 1.65 !important;
+  margin-bottom: 16px !important;
+}
+
+#education .internship-carousel .mini-tags span {
+  min-height: 24px !important;
+  padding: 4px 11px !important;
+  font-size: 12px !important;
+}
+
+@media (max-width: 1400px) {
+  #education .internship-panel {
+    width: min(1060px, calc(100vw - 64px)) !important;
+    padding: 26px 32px 32px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    min-height: 400px !important;
+  }
+
+  #education .internship-carousel .company-logo {
+    height: 96px !important;
+    min-height: 96px !important;
+  }
+}
+
+@media (max-width: 1080px) {
+  #education .internship-panel {
+    width: min(860px, calc(100vw - 32px)) !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: calc((100% - 18px) / 2) !important;
+    min-height: 400px !important;
+  }
+}
+
+@media (max-width: 680px) {
+  #education .internship-panel {
+    width: min(430px, calc(100vw - 18px)) !important;
+    padding: 20px 14px 24px !important;
+  }
+
+  #education .internship-carousel .internship-grid {
+    gap: 14px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: 100% !important;
+    min-height: auto !important;
+    padding: 18px !important;
+  }
+
+  #education .internship-carousel .company-logo {
+    height: 88px !important;
+    min-height: 88px !important;
+  }
+
+  #education .internship-carousel .internship-card h4 {
+    font-size: 22px !important;
+  }
+}
+
+/* P2 internship lock: centered panel, taller card rhythm, no squeezed logos. */
+#education .education-panel.internship-panel {
+  box-sizing: border-box !important;
+  width: min(1180px, calc(100vw - 170px)) !important;
+  max-width: 1180px !important;
+  margin: 34px auto 64px !important;
+  padding: 30px 40px 38px !important;
+  border-radius: 22px !important;
+  overflow: hidden !important;
+}
+
+#education .internship-panel .panel-title {
+  gap: 18px !important;
+  margin: 0 0 30px !important;
+}
+
+#education .internship-panel .panel-icon {
+  width: 46px !important;
+  height: 46px !important;
+  flex: 0 0 46px !important;
+  border-radius: 13px !important;
+  font-size: 22px !important;
+}
+
+#education .internship-panel .panel-title h3 {
+  margin: 0 !important;
+  font-size: 28px !important;
+  line-height: 1.18 !important;
+}
+
+#education .internship-carousel,
+#education .internship-viewport {
+  width: 100% !important;
+}
+
+#education .internship-viewport {
+  overflow: hidden !important;
+  padding: 0 !important;
+}
+
+#education .internship-carousel .internship-grid {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: 22px !important;
+}
+
+#education .internship-carousel .internship-card {
+  box-sizing: border-box !important;
+  display: flex !important;
+  flex: 0 0 calc((100% - 44px) / 3) !important;
+  flex-direction: column !important;
+  min-height: 408px !important;
+  padding: 20px 22px 22px !important;
+  border-radius: 18px !important;
+}
+
+#education .internship-carousel .company-logo {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  height: 88px !important;
+  min-height: 88px !important;
+  margin: 0 0 20px !important;
+  padding: 0 18px !important;
+  border: 1px solid #d7e6fb !important;
+  border-radius: 16px !important;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef5ff 100%) !important;
+}
+
+#education .internship-carousel .company-logo.bluefocus-logo img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 242px !important;
+  max-height: 54px !important;
+  object-fit: contain !important;
+}
+
+#education .internship-carousel .company-logo.hongke-logo img {
+  width: auto !important;
+  height: auto !important;
+  max-width: 208px !important;
+  max-height: 48px !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+#education .internship-carousel .company-logo.paw-logo img,
+#education .internship-carousel .company-logo.freshman-logo img {
+  width: 62px !important;
+  height: 62px !important;
+  object-fit: contain !important;
+}
+
+#education .internship-carousel .internship-card h4 {
+  margin: 0 0 8px !important;
+  font-size: 19px !important;
+  line-height: 1.28 !important;
+  letter-spacing: 0 !important;
+}
+
+#education .internship-carousel .internship-card h4 small {
+  margin-left: 8px !important;
+  font-size: 0.62em !important;
+  white-space: nowrap !important;
+}
+
+#education .internship-carousel .internship-card .role,
+#education .internship-carousel .internship-card .date {
+  margin: 0 0 10px !important;
+  font-size: 13px !important;
+  line-height: 1.4 !important;
+}
+
+#education .internship-carousel .internship-card > p:not(.role):not(.date) {
+  margin: 0 0 16px !important;
+  font-size: 12.8px !important;
+  line-height: 1.72 !important;
+}
+
+#education .internship-carousel .mini-tags {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  gap: 8px !important;
+  margin-top: auto !important;
+}
+
+#education .internship-carousel .mini-tags span {
+  min-height: 24px !important;
+  padding: 5px 11px !important;
+  font-size: 11.5px !important;
+  line-height: 1.2 !important;
+}
+
+#education .internship-controls {
+  margin-top: 26px !important;
+}
+
+[data-theme="dark"] #education .internship-carousel .company-logo,
+[data-theme="mint"] #education .internship-carousel .company-logo {
+  border-color: #d7e6fb !important;
+  background: linear-gradient(135deg, #f8fbff 0%, #eef5ff 100%) !important;
+}
+
+[data-theme="dark"] #education .internship-carousel .company-logo.hongke-logo img,
+[data-theme="mint"] #education .internship-carousel .company-logo.hongke-logo img {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+@media (max-width: 1500px) {
+  #education .education-panel.internship-panel {
+    width: min(1120px, calc(100vw - 76px)) !important;
+    padding: 28px 36px 36px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    min-height: 398px !important;
+  }
+
+  #education .internship-carousel .company-logo {
+    height: 84px !important;
+    min-height: 84px !important;
+  }
+}
+
+@media (max-width: 1120px) {
+  #education .education-panel.internship-panel {
+    width: min(900px, calc(100vw - 36px)) !important;
+  }
+
+  #education .internship-carousel .internship-grid {
+    gap: 18px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: calc((100% - 18px) / 2) !important;
+    min-height: 398px !important;
+  }
+}
+
+@media (max-width: 720px) {
+  #education .education-panel.internship-panel {
+    width: min(430px, calc(100vw - 18px)) !important;
+    margin: 24px auto 44px !important;
+    padding: 22px 14px 24px !important;
+  }
+
+  #education .internship-panel .panel-title {
+    margin-bottom: 22px !important;
+  }
+
+  #education .internship-carousel .internship-grid {
+    gap: 14px !important;
+  }
+
+  #education .internship-carousel .internship-card {
+    flex-basis: 100% !important;
+    min-height: auto !important;
+    padding: 20px !important;
+  }
+
+  #education .internship-carousel .company-logo {
+    height: 92px !important;
+    min-height: 92px !important;
+    margin-bottom: 18px !important;
+  }
+
+  #education .internship-carousel .internship-card h4 {
+    font-size: 22px !important;
+  }
+
+  #education .internship-carousel .internship-card > p:not(.role):not(.date) {
+    font-size: 14px !important;
+    line-height: 1.66 !important;
   }
 }
