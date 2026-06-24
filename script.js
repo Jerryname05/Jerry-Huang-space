@@ -212,7 +212,11 @@ function initInternshipCarousel() {
     return firstCard.getBoundingClientRect().width + gap;
   };
 
-  const visibleCards = () => Math.max(1, Math.round((viewport.clientWidth + 1) / cardStep()));
+  const visibleCards = () => {
+    if (window.matchMedia("(max-width: 720px)").matches) return 1;
+    if (window.matchMedia("(max-width: 1120px)").matches) return Math.min(2, cards.length);
+    return Math.min(3, cards.length);
+  };
 
   const renderDots = () => {
     const nextPageCount = Math.max(1, cards.length - visibleCards() + 1);
