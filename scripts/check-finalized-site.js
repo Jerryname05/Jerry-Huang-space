@@ -21,8 +21,8 @@ assert(!combined.includes("data-edit-type"), "final site should not expose edita
 assert(!html.includes('id="workbenchToggle"'), "workbench floating button should be removed");
 assert(!html.includes('id="workbenchPanel"'), "workbench panel should be removed");
 assert(!js.includes("initWorkbench"), "workbench initializer should be removed");
-assert(html.includes('./styles.css?v=carousel-polish'), "stylesheet cache-busting version should remain");
-assert(html.includes('./script.js?v=carousel-polish'), "script cache-busting version should remain");
+assert(html.includes('./styles.css?v=logo-compact'), "stylesheet cache-busting version should reflect the finalized logo update");
+assert(html.includes('./script.js?v=logo-compact'), "script cache-busting version should reflect the finalized logo update");
 
 if (!process.exitCode) {
   console.log("Finalized site checks passed.");

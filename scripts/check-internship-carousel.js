@@ -26,10 +26,10 @@ assert(/#education\s+\.internship-viewport\s*{[^}]*scroll-padding-inline:\s*14px
 assert(/#education\s+\.internship-carousel\s+\.internship-grid\s*{[^}]*gap:\s*28px\s*!important;/s.test(block), "desktop card gap should match the larger layout");
 assert(/#education\s+\.internship-carousel\s+\.internship-card\s*{[^}]*flex:\s*0\s+0\s+calc\(\(100%\s*-\s*56px\)\s*\/\s*3\)\s*!important;/s.test(block), "desktop cards should fill the larger three-card layout");
 assert(/#education\s+\.internship-carousel\s+\.company-logo\s*{[^}]*height:\s*128px\s*!important;/s.test(block), "company logo area should be enlarged");
-assert(/#education\s+\.internship-carousel\s+\.company-logo\.bluefocus-logo\s+img\s*{[^}]*max-width:\s*330px\s*!important;/s.test(block), "BlueFocus logo should be enlarged");
+assert(/#education\s+\.internship-carousel\s+\.company-logo\.bluefocus-logo\s+img\s*{[^}]*max-width:\s*260px\s*!important;[^}]*max-height:\s*62px\s*!important;/s.test(block), "BlueFocus logo should stay compact in the finalized carousel");
 assert(js.includes('behavior: "smooth"'), "carousel navigation should request smooth scrolling");
-assert(html.includes('./styles.css?v=carousel-polish'), "stylesheet link should bust stale browser cache");
-assert(html.includes('./script.js?v=carousel-polish'), "script link should bust stale browser cache");
+assert(html.includes('./styles.css?v=logo-compact'), "stylesheet link should bust stale browser cache");
+assert(html.includes('./script.js?v=logo-compact'), "script link should bust stale browser cache");
 
 if (!process.exitCode) {
   console.log("Internship carousel checks passed.");
